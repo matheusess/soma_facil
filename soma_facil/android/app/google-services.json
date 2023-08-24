@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "443976715613",
+    "project_id": "soma-facil",
+    "storage_bucket": "soma-facil.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:443976715613:android:c2a8c3547bdf7b3fc96cb4",
+        "android_client_info": {
+          "package_name": "com.somaFacil.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "443976715613-6dqdpodtrpvddu3mr5clrl8jvsoaho6n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBN_dGO9ZhpQ9mvhFcFNypBdoTTi059Wzk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "443976715613-6dqdpodtrpvddu3mr5clrl8jvsoaho6n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "443976715613-hm373bub24f8plp8j3cc9pc86o3kb7v6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.somaFacil.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

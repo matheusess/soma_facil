@@ -1,4 +1,4 @@
-package com.example.soma_facil
+package com.somaFacil.app
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>443976715613-p8ablhfovllm7c7b55tra88ri184v09j.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.443976715613-p8ablhfovllm7c7b55tra88ri184v09j</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDbiyt60IUaHDJDdVtd7ibj5hZ--_FC3Vk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>443976715613</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.somaFacil.app</string>
+	<key>PROJECT_ID</key>
+	<string>soma-facil</string>
+	<key>STORAGE_BUCKET</key>
+	<string>soma-facil.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:443976715613:ios:159fa62a88c25d09c96cb4</string>
+</dict>
+</plist>
