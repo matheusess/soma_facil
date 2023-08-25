@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:soma_facil/screens/start/home/new_grocery/new_grocery_item_list_widget.dart';
 
 import '../../../../global/global_colors.dart';
 import '../../../../stores/new_grocery/new_grocery_store.dart';
@@ -56,13 +57,12 @@ class _NewGroceryScreenState extends State<NewGroceryScreen> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Observer(builder: (_) {
                 if (newGroceryStore.newGroceryList.isEmpty) {
                   return const NewGroceryNoDataWidget();
                 } else {
-                  return hasData();
+                  return const NewGroceryItemListWidget();
                 }
               })
             ],
@@ -77,45 +77,6 @@ class _NewGroceryScreenState extends State<NewGroceryScreen> {
         backgroundColor: color.purple,
         child: const Icon(Icons.arrow_back),
       ),
-    );
-  }
-
-  Widget hasData() {
-    List<String> items = [
-      '1',
-      '1',
-      '1',
-      '1',
-      '1',
-      '1',
-      '2',
-      '2',
-      '2',
-      '2',
-      '2',
-      '2',
-      '2',
-      '2',
-      '2',
-      '2',
-    ];
-    return Column(
-      children: [
-        ListView.builder(
-          itemCount: items.length,
-          shrinkWrap: true,
-          physics: const ClampingScrollPhysics(),
-          prototypeItem: ListTile(
-            title: Text(items.first),
-          ),
-          itemBuilder: (context, index) {
-            return ListTile(
-              title: Text(items[index]),
-            );
-          },
-        ),
-        const SizedBox(height: 40),
-      ],
     );
   }
 }
