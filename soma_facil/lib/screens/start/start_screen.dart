@@ -13,7 +13,7 @@ class StartScreen extends StatefulWidget {
 }
 
 class _StartScreenState extends State<StartScreen> {
-  GlobalColorsLibrary color = GlobalColorsLibrary();
+  GlobalColors color = GlobalColors();
   final PageController _pageController = PageController();
 
   int _page = 0;

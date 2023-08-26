@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GlobalColorsLibrary color = GlobalColorsLibrary();
+    GlobalColors color = GlobalColors();
 
     return MultiProvider(
       providers: [

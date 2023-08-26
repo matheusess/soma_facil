@@ -4,30 +4,27 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'global_colors.dart';
+import 'global_currency_formatter.dart';
 
-class GlobalTextField extends StatefulWidget {
-  final Icon? prefixIcon;
+class GlobalCurrencyField extends StatefulWidget {
   final String placeHolder;
   final TextInputType keyboardType;
-  final void Function(String) setAttribute;
   final bool isEnable;
-  final TextInputFormatter? formatter;
+  final void Function(String) setAttribute;
 
-  const GlobalTextField({
+  const GlobalCurrencyField({
     super.key,
     required this.placeHolder,
     required this.keyboardType,
     required this.setAttribute,
     required this.isEnable,
-    this.prefixIcon,
-    this.formatter,
   });
 
   @override
-  State<GlobalTextField> createState() => _GlobalTextFieldState();
+  State<GlobalCurrencyField> createState() => _GlobalCurrencyFieldState();
 }
 
-class _GlobalTextFieldState extends State<GlobalTextField> {
+class _GlobalCurrencyFieldState extends State<GlobalCurrencyField> {
   GlobalColors color = GlobalColors();
 
   @override
@@ -41,6 +38,10 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
         ),
         height: 64,
         child: TextFormField(
+          inputFormatters: [
+            FilteringTextInputFormatter.digitsOnly,
+            GlobalCurrencyFormatter()
+          ],
           onChanged: widget.setAttribute,
           enabled: widget.isEnable,
           autofocus: false,
@@ -53,7 +54,6 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
             ),
           ),
           decoration: InputDecoration(
-            prefixIcon: widget.prefixIcon,
             fillColor: const Color.fromARGB(255, 240, 240, 240),
             filled: true,
             contentPadding:

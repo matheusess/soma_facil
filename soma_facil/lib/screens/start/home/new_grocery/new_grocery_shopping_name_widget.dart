@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:soma_facil/stores/new_grocery/new_grocery_store.dart';
 
 import '../../../../global/global_colors.dart';
 
@@ -13,11 +15,14 @@ class NewGroceryShoppingNameWidget extends StatefulWidget {
 
 class _NewGroceryShoppingNameWidgetState
     extends State<NewGroceryShoppingNameWidget> {
-  GlobalColorsLibrary color = GlobalColorsLibrary();
+  NewGroceryStore newGroceryStore = NewGroceryStore();
+  final GlobalColors color = GlobalColors();
 
   @override
-  void dispose() {
-    super.dispose();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    newGroceryStore = Provider.of<NewGroceryStore>(context);
   }
 
   @override
@@ -63,6 +68,7 @@ class _NewGroceryShoppingNameWidgetState
               ],
             ),
             TextFormField(
+              onChanged: newGroceryStore.setGroceryName,
               autofocus: false,
               style: GoogleFonts.nunito(
                 textStyle: TextStyle(

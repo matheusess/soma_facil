@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../model/new_item/new_item_model.dart';
@@ -6,16 +7,33 @@ part 'new_grocery_store.g.dart';
 class NewGroceryStore = NewGroceryStoreBase with _$NewGroceryStore;
 
 abstract class NewGroceryStoreBase with Store {
+  /*NewGroceryStoreBase() {
+    autorun((p0) {
+      if (kDebugMode) {
+        print('Grocery name = $itemName');
+        print('Item name = $itemName');
+        print('Item price = $itemPrice');
+        print('Item price totalizer = $itemPriceTotalizer');
+      }
+    });
+  }*/
+
   /*
 
   @Variables
 
   */
   @observable
-  String groceryName = '';
+  String removeCaracters = '', removeDots = '';
 
   @observable
-  double priceTotalizer = 0.0;
+  String groceryName = '', itemName = '';
+
+  @observable
+  double groceryPriceTotalizer = 0, itemPriceTotalizer = 0, itemPrice = 0;
+
+  @observable
+  int itemQuantity = 1;
 
   @observable
   ObservableList<NewItemModel> newGroceryList =
@@ -24,10 +42,50 @@ abstract class NewGroceryStoreBase with Store {
   /*
 
   @Action
-
+  @*** Price calculation
   */
   @action
-  void setGroceryName(String value) => value = groceryName;
+  void setGroceryName(String value) => {groceryName = value};
+
+  @action
+  void setItemName(String value) => itemName = value;
+
+  @action
+  void parseItemPrice(String value) => {
+        removeCaracters = value.replaceAll(RegExp('[R\$.]'), ''),
+        removeDots = removeCaracters.replaceAll(RegExp(','), '.'),
+        _setItemPrice(double.parse(removeDots)),
+        _updateItemPriceTotalizer(),
+      };
+
+  @action
+  void _setItemPrice(double value) => itemPrice = value;
+
+  @action
+  void _setPriceTotalizer(double value) => itemPriceTotalizer = value;
+
+  @action
+  void addProductQuantity() {
+    itemQuantity++;
+    _updateItemPriceTotalizer();
+  }
+
+  @action
+  void removeProductQuantity() {
+    itemQuantity == 1 ? 1 : itemQuantity--;
+    _updateItemPriceTotalizer();
+  }
+
+  @action
+  void _updateItemPriceTotalizer() {
+    itemPriceTotalizer = itemPrice * itemQuantity;
+  }
+
+  /*
+
+  @Action
+  @*** item list changes
+  */
 
   @action
   void addItem(NewItemModel item) {
@@ -43,9 +101,9 @@ abstract class NewGroceryStoreBase with Store {
 
   @action
   void _updateTotal() {
-    priceTotalizer = 0.0;
+    groceryPriceTotalizer = 0.0;
     for (var i = 0; i < newGroceryList.length; i++) {
-      priceTotalizer += newGroceryList[i].productTotalPrice;
+      groceryPriceTotalizer += newGroceryList[i].productTotalPrice;
     }
   }
 }

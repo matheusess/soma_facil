@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:soma_facil/global/global_colors.dart';
 
-import '../../../../global/global_colors.dart';
-
-class NewGroceryHeaderWidget extends StatefulWidget {
-  const NewGroceryHeaderWidget({super.key});
+class NewGroceryItemHeader extends StatefulWidget {
+  const NewGroceryItemHeader({super.key});
 
   @override
-  State<NewGroceryHeaderWidget> createState() => _NewGroceryHeaderWidgetState();
+  State<NewGroceryItemHeader> createState() => _NewGroceryItemHeaderState();
 }
 
-class _NewGroceryHeaderWidgetState extends State<NewGroceryHeaderWidget> {
+class _NewGroceryItemHeaderState extends State<NewGroceryItemHeader> {
   GlobalColors color = GlobalColors();
 
   @override
@@ -18,18 +17,23 @@ class _NewGroceryHeaderWidgetState extends State<NewGroceryHeaderWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Compra',
-          style: GoogleFonts.poppins(
-            textStyle: TextStyle(
-              color: color.green,
-              fontWeight: FontWeight.w700,
-              fontSize: 34,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              'Novo Item',
+              style: GoogleFonts.poppins(
+                textStyle: TextStyle(
+                  color: color.green,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 34,
+                ),
+              ),
             ),
-          ),
+          ],
         ),
         Text(
-          'Bora fazer',
+          'Bora adicionar',
           style: GoogleFonts.nunito(
             textStyle: TextStyle(
               color: color.darkGrey,
@@ -39,7 +43,7 @@ class _NewGroceryHeaderWidgetState extends State<NewGroceryHeaderWidget> {
           ),
         ),
         Text(
-          'uma nova compra?',
+          'um novo item?',
           style: GoogleFonts.nunito(
             textStyle: TextStyle(
               color: color.darkGrey,

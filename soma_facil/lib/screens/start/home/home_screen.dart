@@ -11,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  GlobalColorsLibrary color = GlobalColorsLibrary();
+  GlobalColors color = GlobalColors();
 
   @override
   Widget build(BuildContext context) {

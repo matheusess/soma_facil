@@ -13,7 +13,7 @@ class NewGroceryAdditemButton extends StatefulWidget {
 }
 
 class _NewGroceryAdditemButtonState extends State<NewGroceryAdditemButton> {
-  GlobalColorsLibrary color = GlobalColorsLibrary();
+  GlobalColors color = GlobalColors();
 
   @override
   Widget build(BuildContext context) {

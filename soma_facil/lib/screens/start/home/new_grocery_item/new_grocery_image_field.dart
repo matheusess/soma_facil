@@ -10,7 +10,7 @@ class NewGroceryImageField extends StatefulWidget {
 }
 
 class _NewGroceryImageFieldState extends State<NewGroceryImageField> {
-  GlobalColorsLibrary color = GlobalColorsLibrary();
+  GlobalColors color = GlobalColors();
 
   @override
   Widget build(BuildContext context) {

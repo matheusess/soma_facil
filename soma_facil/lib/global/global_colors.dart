@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class GlobalColorsLibrary {
+class GlobalColors {
   Color transparent = Colors.transparent;
   Color black = Colors.black;
   Color white = Colors.white;
