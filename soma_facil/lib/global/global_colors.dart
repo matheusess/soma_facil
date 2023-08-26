@@ -6,6 +6,7 @@ class GlobalColors {
   Color white = Colors.white;
   Color darkGrey = const Color.fromARGB(255, 66, 66, 66);
   Color grey = const Color.fromARGB(255, 153, 153, 153);
+  Color lightGrey = const Color.fromARGB(255, 186, 186, 186);
   Color cardBackground = const Color.fromARGB(255, 240, 240, 240);
   Color darkWine = const Color(0xFF331436);
   Color wine = const Color(0xFF7a1745);

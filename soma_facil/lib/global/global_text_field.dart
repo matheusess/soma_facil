@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'global_colors.dart';
 
 class GlobalTextField extends StatefulWidget {
+  final bool isEnable;
   final Icon? prefixIcon;
   final String placeHolder;
+  final String initialValue;
   final TextInputType keyboardType;
   final void Function(String) setAttribute;
-  final bool isEnable;
-  final TextInputFormatter? formatter;
 
   const GlobalTextField({
     super.key,
+    this.prefixIcon,
     required this.placeHolder,
-    required this.keyboardType,
     required this.setAttribute,
     required this.isEnable,
-    this.prefixIcon,
-    this.formatter,
+    required this.initialValue,
+    required this.keyboardType,
   });
 
   @override
@@ -41,6 +40,7 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
         ),
         height: 64,
         child: TextFormField(
+          initialValue: widget.initialValue,
           onChanged: widget.setAttribute,
           enabled: widget.isEnable,
           autofocus: false,

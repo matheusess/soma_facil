@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:soma_facil/global/global_colors.dart';
 import 'package:soma_facil/stores/new_grocery/new_grocery_store.dart';
 
@@ -27,17 +28,36 @@ class _NewGroceryTotalPriceItemWidgetState
 
   @override
   Widget build(BuildContext context) {
-    return Observer(
-      builder: (_) => Text(
-        newGroceryStore.itemPriceTotalizer.toString(),
-        style: GoogleFonts.nunito(
-          textStyle: TextStyle(
-            color: color.black,
-            fontWeight: FontWeight.w700,
-            fontSize: 14,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'R\$',
+          style: GoogleFonts.nunito(
+            textStyle: TextStyle(
+              color: color.black,
+              fontWeight: FontWeight.w800,
+              fontSize: 14,
+              height: 1.5,
+            ),
           ),
         ),
-      ),
+        const SizedBox(width: 4),
+        Observer(
+          builder: (_) => Text(
+            newGroceryStore.itemPriceTotalizerStr,
+            style: GoogleFonts.nunito(
+              textStyle: TextStyle(
+                color: color.black,
+                fontWeight: FontWeight.w800,
+                fontSize: 32,
+                height: 1,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

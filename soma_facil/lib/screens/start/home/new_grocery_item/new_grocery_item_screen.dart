@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:soma_facil/global/global_colors.dart';
 import 'package:soma_facil/global/global_styles.dart';
@@ -53,6 +52,7 @@ class _NewGroceryItemScreenState extends State<NewGroceryItemScreen> {
               const NewGroceryImageField(),
               space.vSpace3,
               GlobalTextField(
+                initialValue: newGroceryStore.itemName,
                 placeHolder: 'Nome do produto',
                 keyboardType: TextInputType.text,
                 setAttribute: newGroceryStore.setItemName,
@@ -61,6 +61,7 @@ class _NewGroceryItemScreenState extends State<NewGroceryItemScreen> {
               space.vSpace3,
               GlobalCurrencyField(
                 placeHolder: 'Preço',
+                initialValue: newGroceryStore.itemPriceStr,
                 keyboardType: TextInputType.number,
                 setAttribute: newGroceryStore.parseItemPrice,
                 isEnable: true,

@@ -57,6 +57,22 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
     });
   }
 
+  late final _$itemPriceStrAtom =
+      Atom(name: 'NewGroceryStoreBase.itemPriceStr', context: context);
+
+  @override
+  String get itemPriceStr {
+    _$itemPriceStrAtom.reportRead();
+    return super.itemPriceStr;
+  }
+
+  @override
+  set itemPriceStr(String value) {
+    _$itemPriceStrAtom.reportWrite(value, super.itemPriceStr, () {
+      super.itemPriceStr = value;
+    });
+  }
+
   late final _$itemNameAtom =
       Atom(name: 'NewGroceryStoreBase.itemName', context: context);
 
@@ -70,6 +86,23 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
   set itemName(String value) {
     _$itemNameAtom.reportWrite(value, super.itemName, () {
       super.itemName = value;
+    });
+  }
+
+  late final _$itemPriceTotalizerStrAtom =
+      Atom(name: 'NewGroceryStoreBase.itemPriceTotalizerStr', context: context);
+
+  @override
+  String get itemPriceTotalizerStr {
+    _$itemPriceTotalizerStrAtom.reportRead();
+    return super.itemPriceTotalizerStr;
+  }
+
+  @override
+  set itemPriceTotalizerStr(String value) {
+    _$itemPriceTotalizerStrAtom.reportWrite(value, super.itemPriceTotalizerStr,
+        () {
+      super.itemPriceTotalizerStr = value;
     });
   }
 
@@ -284,7 +317,9 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
 removeCaracters: ${removeCaracters},
 removeDots: ${removeDots},
 groceryName: ${groceryName},
+itemPriceStr: ${itemPriceStr},
 itemName: ${itemName},
+itemPriceTotalizerStr: ${itemPriceTotalizerStr},
 groceryPriceTotalizer: ${groceryPriceTotalizer},
 itemPriceTotalizer: ${itemPriceTotalizer},
 itemPrice: ${itemPrice},

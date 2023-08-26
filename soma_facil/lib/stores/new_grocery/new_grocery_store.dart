@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../model/new_item/new_item_model.dart';
@@ -7,17 +7,6 @@ part 'new_grocery_store.g.dart';
 class NewGroceryStore = NewGroceryStoreBase with _$NewGroceryStore;
 
 abstract class NewGroceryStoreBase with Store {
-  /*NewGroceryStoreBase() {
-    autorun((p0) {
-      if (kDebugMode) {
-        print('Grocery name = $itemName');
-        print('Item name = $itemName');
-        print('Item price = $itemPrice');
-        print('Item price totalizer = $itemPriceTotalizer');
-      }
-    });
-  }*/
-
   /*
 
   @Variables
@@ -27,7 +16,10 @@ abstract class NewGroceryStoreBase with Store {
   String removeCaracters = '', removeDots = '';
 
   @observable
-  String groceryName = '', itemName = '';
+  String groceryName = '',
+      itemPriceStr = '',
+      itemName = '',
+      itemPriceTotalizerStr = "0,00";
 
   @observable
   double groceryPriceTotalizer = 0, itemPriceTotalizer = 0, itemPrice = 0;
@@ -52,6 +44,7 @@ abstract class NewGroceryStoreBase with Store {
 
   @action
   void parseItemPrice(String value) => {
+        itemPriceStr = value,
         removeCaracters = value.replaceAll(RegExp('[R\$.]'), ''),
         removeDots = removeCaracters.replaceAll(RegExp(','), '.'),
         _setItemPrice(double.parse(removeDots)),
@@ -65,26 +58,30 @@ abstract class NewGroceryStoreBase with Store {
   void _setPriceTotalizer(double value) => itemPriceTotalizer = value;
 
   @action
-  void addProductQuantity() {
-    itemQuantity++;
-    _updateItemPriceTotalizer();
-  }
+  void addProductQuantity() => {
+        itemQuantity++,
+        _updateItemPriceTotalizer(),
+      };
 
   @action
-  void removeProductQuantity() {
-    itemQuantity == 1 ? 1 : itemQuantity--;
-    _updateItemPriceTotalizer();
-  }
+  void removeProductQuantity() => {
+        itemQuantity == 1 ? 1 : itemQuantity--,
+        _updateItemPriceTotalizer(),
+      };
 
   @action
-  void _updateItemPriceTotalizer() {
-    itemPriceTotalizer = itemPrice * itemQuantity;
-  }
+  void _updateItemPriceTotalizer() => {
+        itemPriceTotalizer = itemPrice * itemQuantity,
+        itemPriceTotalizerStr = UtilBrasilFields.obterReal(
+          itemPriceTotalizer,
+          moeda: false,
+        ),
+      };
 
   /*
 
   @Action
-  @*** item list changes
+  @*** List item handle
   */
 
   @action

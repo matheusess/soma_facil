@@ -11,6 +11,7 @@ class GlobalCurrencyField extends StatefulWidget {
   final TextInputType keyboardType;
   final bool isEnable;
   final void Function(String) setAttribute;
+  final String initialValue;
 
   const GlobalCurrencyField({
     super.key,
@@ -18,6 +19,7 @@ class GlobalCurrencyField extends StatefulWidget {
     required this.keyboardType,
     required this.setAttribute,
     required this.isEnable,
+    required this.initialValue,
   });
 
   @override
@@ -38,6 +40,7 @@ class _GlobalCurrencyFieldState extends State<GlobalCurrencyField> {
         ),
         height: 64,
         child: TextFormField(
+          initialValue: widget.initialValue,
           inputFormatters: [
             FilteringTextInputFormatter.digitsOnly,
             GlobalCurrencyFormatter()
