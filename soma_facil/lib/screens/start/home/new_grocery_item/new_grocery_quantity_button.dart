@@ -61,7 +61,7 @@ class _NewGroceryQuantityButtonState extends State<NewGroceryQuantityButton> {
                   textStyle: TextStyle(
                     color: color.black,
                     fontWeight: FontWeight.w700,
-                    fontSize: 14,
+                    fontSize: 16,
                   ),
                 ),
               ),

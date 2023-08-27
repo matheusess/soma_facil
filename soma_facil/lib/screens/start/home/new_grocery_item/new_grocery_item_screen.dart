@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:soma_facil/global/global_colors.dart';
 import 'package:soma_facil/global/global_styles.dart';
 import 'package:soma_facil/global/global_text_field.dart';
-import 'package:soma_facil/screens/start/home/new_grocery_item/new_grocery_image_field.dart';
+import 'package:soma_facil/screens/start/home/new_grocery_item/images_widget/new_grocery_image_field.dart';
 import 'package:soma_facil/screens/start/home/new_grocery_item/new_grocery_item_header_widget.dart';
 import 'package:soma_facil/stores/new_grocery/new_grocery_store.dart';
 
@@ -50,6 +50,11 @@ class _NewGroceryItemScreenState extends State<NewGroceryItemScreen> {
             children: [
               space.vSpace3,
               const NewGroceryImageField(),
+              space.vSpace3,
+              Divider(
+                color: color.blueGreen,
+                height: 1,
+              ),
               space.vSpace3,
               GlobalTextField(
                 initialValue: newGroceryStore.itemName,

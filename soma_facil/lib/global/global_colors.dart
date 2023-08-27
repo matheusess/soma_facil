@@ -11,6 +11,7 @@ class GlobalColors {
   Color darkWine = const Color(0xFF331436);
   Color wine = const Color(0xFF7a1745);
   Color purple = const Color(0xFFa70267);
+  Color cleanPurple = const Color(0xFF8357FB);
   Color red = const Color(0xFFf10c49);
   Color orange = const Color(0xFFfb6b41);
   Color lightOrange = const Color(0xFFeb9961);
@@ -18,4 +19,5 @@ class GlobalColors {
   Color blueGreen = const Color(0xFF339194);
   Color green = const Color(0xFF2CBF6C);
   Color blue = const Color(0xFF1760BF);
+  Color lightBlue = const Color.fromARGB(255, 5, 124, 251);
 }

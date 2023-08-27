@@ -21,7 +21,7 @@ class _NewGroceryItemHeaderState extends State<NewGroceryItemHeader> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              'Novo Item',
+              'Novo Produto',
               style: GoogleFonts.poppins(
                 textStyle: TextStyle(
                   color: color.green,
