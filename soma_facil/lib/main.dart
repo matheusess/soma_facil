@@ -34,7 +34,6 @@ class MyApp extends StatelessWidget {
       providers: [
         Provider<LoginStore>(create: (_) => LoginStore()),
         Provider<NewGroceryStore>(create: (_) => NewGroceryStore()),
-        Provider<NewGroceryStore>(create: (_) => NewGroceryStore()),
       ],
       child: MaterialApp(
         localizationsDelegates: const [

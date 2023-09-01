@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:soma_facil/global/global_colors.dart';
 import 'package:soma_facil/global/global_styles.dart';
@@ -48,14 +49,47 @@ class _NewGroceryItemScreenState extends State<NewGroceryItemScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              space.vSpace3,
+              space.vSpace2,
               const NewGroceryImageField(),
               space.vSpace3,
-              Divider(
-                color: color.blueGreen,
+              /*Divider(
+                color: color.lightGrey,
                 height: 1,
+              ),*/
+              //space.vSpace3,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Divider(
+                      indent: 2,
+                      endIndent: 16,
+                      height: 1,
+                      color: color.lightGrey,
+                    ),
+                  ),
+                  Text(
+                    'Dados do produto',
+                    style: GoogleFonts.nunito(
+                      textStyle: TextStyle(
+                        color: color.darkGrey,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Divider(
+                      indent: 16,
+                      endIndent: 2,
+                      height: 1,
+                      color: color.lightGrey,
+                    ),
+                  ),
+                ],
               ),
-              space.vSpace3,
+              space.vSpace2,
               GlobalTextField(
                 initialValue: newGroceryStore.itemName,
                 placeHolder: 'Nome do produto',

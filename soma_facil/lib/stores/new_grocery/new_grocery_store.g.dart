@@ -9,6 +9,44 @@ part of 'new_grocery_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
+  Computed<bool>? _$isItemNameValidComputed;
+
+  @override
+  bool get isItemNameValid =>
+      (_$isItemNameValidComputed ??= Computed<bool>(() => super.isItemNameValid,
+              name: 'NewGroceryStoreBase.isItemNameValid'))
+          .value;
+  Computed<bool>? _$isItemPriceValidComputed;
+
+  @override
+  bool get isItemPriceValid => (_$isItemPriceValidComputed ??= Computed<bool>(
+          () => super.isItemPriceValid,
+          name: 'NewGroceryStoreBase.isItemPriceValid'))
+      .value;
+  Computed<bool>? _$isNewItemValidComputed;
+
+  @override
+  bool get isNewItemValid =>
+      (_$isNewItemValidComputed ??= Computed<bool>(() => super.isNewItemValid,
+              name: 'NewGroceryStoreBase.isNewItemValid'))
+          .value;
+
+  late final _$isLoadingAtom =
+      Atom(name: 'NewGroceryStoreBase.isLoading', context: context);
+
+  @override
+  bool get isLoading {
+    _$isLoadingAtom.reportRead();
+    return super.isLoading;
+  }
+
+  @override
+  set isLoading(bool value) {
+    _$isLoadingAtom.reportWrite(value, super.isLoading, () {
+      super.isLoading = value;
+    });
+  }
+
   late final _$removeCaractersAtom =
       Atom(name: 'NewGroceryStoreBase.removeCaracters', context: context);
 
@@ -171,6 +209,22 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
     });
   }
 
+  late final _$itemImageAtom =
+      Atom(name: 'NewGroceryStoreBase.itemImage', context: context);
+
+  @override
+  File? get itemImage {
+    _$itemImageAtom.reportRead();
+    return super.itemImage;
+  }
+
+  @override
+  set itemImage(File? value) {
+    _$itemImageAtom.reportWrite(value, super.itemImage, () {
+      super.itemImage = value;
+    });
+  }
+
   late final _$newGroceryListAtom =
       Atom(name: 'NewGroceryStoreBase.newGroceryList', context: context);
 
@@ -189,6 +243,17 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
 
   late final _$NewGroceryStoreBaseActionController =
       ActionController(name: 'NewGroceryStoreBase', context: context);
+
+  @override
+  void setImageFile(File value) {
+    final _$actionInfo = _$NewGroceryStoreBaseActionController.startAction(
+        name: 'NewGroceryStoreBase.setImageFile');
+    try {
+      return super.setImageFile(value);
+    } finally {
+      _$NewGroceryStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   void setGroceryName(String value) {
@@ -312,8 +377,31 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
   }
 
   @override
+  void imageClear() {
+    final _$actionInfo = _$NewGroceryStoreBaseActionController.startAction(
+        name: 'NewGroceryStoreBase.imageClear');
+    try {
+      return super.imageClear();
+    } finally {
+      _$NewGroceryStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void _clearItemData() {
+    final _$actionInfo = _$NewGroceryStoreBaseActionController.startAction(
+        name: 'NewGroceryStoreBase._clearItemData');
+    try {
+      return super._clearItemData();
+    } finally {
+      _$NewGroceryStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
+isLoading: ${isLoading},
 removeCaracters: ${removeCaracters},
 removeDots: ${removeDots},
 groceryName: ${groceryName},
@@ -324,7 +412,11 @@ groceryPriceTotalizer: ${groceryPriceTotalizer},
 itemPriceTotalizer: ${itemPriceTotalizer},
 itemPrice: ${itemPrice},
 itemQuantity: ${itemQuantity},
-newGroceryList: ${newGroceryList}
+itemImage: ${itemImage},
+newGroceryList: ${newGroceryList},
+isItemNameValid: ${isItemNameValid},
+isItemPriceValid: ${isItemPriceValid},
+isNewItemValid: ${isNewItemValid}
     ''';
   }
 }

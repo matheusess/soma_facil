@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 import 'package:soma_facil/stores/new_grocery/new_grocery_store.dart';
 
@@ -24,15 +25,17 @@ class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ListView.builder(
-          itemCount: newGroceryStore.newGroceryList.length,
-          shrinkWrap: true,
-          physics: const ClampingScrollPhysics(),
-          itemBuilder: (context, index) {
-            return ListTile(
-              title: Text(newGroceryStore.newGroceryList[index].productName),
-            );
-          },
+        Observer(
+          builder: (_) => ListView.builder(
+            itemCount: newGroceryStore.newGroceryList.length,
+            shrinkWrap: true,
+            physics: const ClampingScrollPhysics(),
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(newGroceryStore.newGroceryList[index].productName),
+              );
+            },
+          ),
         ),
         const SizedBox(height: 40),
       ],

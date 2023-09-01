@@ -34,7 +34,7 @@ class _NewGroceryImageSelectSourceWidgetState
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 22, bottom: 42),
+      padding: const EdgeInsets.only(top: 8, bottom: 42),
       color: color.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -42,7 +42,7 @@ class _NewGroceryImageSelectSourceWidgetState
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(left: 24, right: 18),
+            padding: const EdgeInsets.only(left: 24, right: 8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -56,15 +56,14 @@ class _NewGroceryImageSelectSourceWidgetState
                     ),
                   ),
                 ),
-                InkWell(
-                  child: const Icon(
+                IconButton(
+                  onPressed: () =>
+                      Navigator.of(context, rootNavigator: true).pop(),
+                  icon: const Icon(
                     Icons.close_rounded,
                     color: Color.fromARGB(221, 77, 77, 77),
                     size: 20,
                   ),
-                  onTap: () {
-                    Navigator.of(context, rootNavigator: true).pop();
-                  },
                 ),
               ],
             ),
@@ -79,10 +78,10 @@ class _NewGroceryImageSelectSourceWidgetState
                 child: Column(
                   children: [
                     GlobalRoundedIconButton(
-                      backgroundColor: color.lightBlue,
+                      backgroundColor: color.cleanPurple,
                       icon: const Icon(
                         Icons.camera_alt_rounded,
-                        size: 24.0,
+                        size: 24,
                       ),
                       onPressed: () {
                         _getImage(ImageSource.camera);
@@ -96,7 +95,7 @@ class _NewGroceryImageSelectSourceWidgetState
                       'Câmera',
                       style: GoogleFonts.nunito(
                         textStyle: const TextStyle(
-                          color: Colors.black,
+                          color: Color.fromARGB(221, 0, 0, 0),
                           fontWeight: FontWeight.w600,
                           fontSize: 14,
                         ),
@@ -108,7 +107,7 @@ class _NewGroceryImageSelectSourceWidgetState
               Column(
                 children: [
                   GlobalRoundedIconButton(
-                    backgroundColor: color.lightBlue,
+                    backgroundColor: color.cleanPurple,
                     icon: const Icon(
                       Icons.image_rounded,
                       size: 24.0,
@@ -123,7 +122,7 @@ class _NewGroceryImageSelectSourceWidgetState
                   ),
                   Text(
                     'Galeria',
-                    style: GoogleFonts.quicksand(
+                    style: GoogleFonts.nunito(
                       textStyle: const TextStyle(
                         color: Color.fromARGB(221, 0, 0, 0),
                         fontWeight: FontWeight.w600,
@@ -146,7 +145,7 @@ class _NewGroceryImageSelectSourceWidgetState
     if (image != null) {
       CroppedFile? cropped = (await ImageCropper().cropImage(
         sourcePath: image.path,
-        aspectRatio: const CropAspectRatio(ratioX: 1, ratioY: 1),
+        aspectRatio: const CropAspectRatio(ratioX: 5, ratioY: 2),
         compressQuality: 50,
         compressFormat: ImageCompressFormat.jpg,
       ));

@@ -29,7 +29,7 @@ class _NewGroceryQuantityButtonState extends State<NewGroceryQuantityButton> {
   Widget build(BuildContext context) {
     return Observer(
       builder: (_) => Container(
-        height: 64,
+        height: 56,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
           color: const Color.fromARGB(255, 240, 240, 240),

@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:brasil_fields/brasil_fields.dart';
-import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../model/new_item/new_item_model.dart';
@@ -15,12 +14,16 @@ abstract class NewGroceryStoreBase with Store {
   @Variables
 
   */
+
+  @observable
+  bool isLoading = false;
+
   @observable
   String removeCaracters = '', removeDots = '';
 
   @observable
   String groceryName = '',
-      itemPriceStr = '',
+      itemPriceStr = 'R\$ 0,00',
       itemName = '',
       itemPriceTotalizerStr = "0,00";
 
@@ -31,20 +34,35 @@ abstract class NewGroceryStoreBase with Store {
   int itemQuantity = 1;
 
   @observable
-  late File productImage;
+  File? itemImage;
 
   @observable
   ObservableList<NewItemModel> newGroceryList =
       ObservableList<NewItemModel>.of([]);
 
-  @action
-  void setImageFile(File value) => productImage = value;
+  /* 
+  
+  @Computed
+  @****** Validation
+  
+  */
+  @computed
+  bool get isItemNameValid => itemName.isNotEmpty;
+
+  @computed
+  bool get isItemPriceValid => itemPrice > 0.0;
+
+  @computed
+  bool get isNewItemValid => isItemNameValid && isItemPriceValid;
 
   /*
 
   @Action
   @*** Price calculation
   */
+  @action
+  void setImageFile(File value) => itemImage = value;
+
   @action
   void setGroceryName(String value) => groceryName = value;
 
@@ -107,9 +125,28 @@ abstract class NewGroceryStoreBase with Store {
 
   @action
   void _updateTotal() {
+    isLoading = true;
     groceryPriceTotalizer = 0.0;
     for (var i = 0; i < newGroceryList.length; i++) {
       groceryPriceTotalizer += newGroceryList[i].productTotalPrice;
     }
+    _clearItemData();
+    isLoading = false;
+  }
+
+  @action
+  void imageClear() {
+    itemImage = null;
+  }
+
+  @action
+  void _clearItemData() {
+    itemName = '';
+    itemPrice = 0.0;
+    itemPriceStr = 'R\$ 0,00';
+    itemPriceTotalizer = 0.0;
+    itemPriceTotalizerStr = '0,00';
+    itemQuantity = 1;
+    itemImage = null;
   }
 }
