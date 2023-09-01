@@ -62,64 +62,76 @@ class _NewGroceryImageFieldState extends State<NewGroceryImageField> {
               },
             ),
           },
-          child: Container(
-            height: 96,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: color.cardBackground,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8),
-              child: Observer(
-                builder: (_) => newGroceryStore.itemImage == null
-                    ? _noPhoto()
-                    : _hasPhoto(),
-              ),
-            ),
+          child: Observer(
+            builder: (_) =>
+                newGroceryStore.itemImage == null ? _noPhoto() : _hasPhoto(),
           ),
         ),
-        Observer(builder: (_) {
-          return TextButton(
-            onPressed: newGroceryStore.imageClear,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.delete_forever,
-                  color: color.red,
-                ),
-                Text(
-                  'Excluir imagem',
-                  style: GoogleFonts.nunito(
-                    textStyle: TextStyle(
-                      color: color.darkGrey,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 14,
-                    ),
+        TextButton(
+          onPressed: newGroceryStore.imageClear,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.delete_forever,
+                color: color.red,
+              ),
+              Text(
+                'Excluir imagem',
+                style: GoogleFonts.nunito(
+                  textStyle: TextStyle(
+                    color: color.darkGrey,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14,
                   ),
                 ),
-              ],
-            ),
-          );
-        }),
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
 
   Widget _noPhoto() {
-    return Icon(
-      Icons.add_a_photo,
-      size: 38,
-      color: color.darkGrey,
+    return Container(
+      height: 96,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: color.cardBackground,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8),
+        child: Icon(
+          Icons.add_a_photo,
+          size: 38,
+          color: color.darkGrey,
+        ),
+      ),
     );
   }
 
   Widget _hasPhoto() {
-    return Image.file(
-      newGroceryStore.itemImage!,
-      scale: .5,
+    return Container(
+      height: 96,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: color.green,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(2),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: Image.file(
+            newGroceryStore.itemImage!,
+            scale: .5,
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
     );
   }
 }

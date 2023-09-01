@@ -145,7 +145,7 @@ class _NewGroceryImageSelectSourceWidgetState
     if (image != null) {
       CroppedFile? cropped = (await ImageCropper().cropImage(
         sourcePath: image.path,
-        aspectRatio: const CropAspectRatio(ratioX: 5, ratioY: 2),
+        aspectRatio: const CropAspectRatio(ratioX: 7, ratioY: 2),
         compressQuality: 50,
         compressFormat: ImageCompressFormat.jpg,
       ));

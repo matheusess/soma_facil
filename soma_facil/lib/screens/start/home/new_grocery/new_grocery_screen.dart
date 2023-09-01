@@ -35,7 +35,7 @@ class _NewGroceryScreenState extends State<NewGroceryScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: 300,
+        toolbarHeight: 260,
         automaticallyImplyLeading: false,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +45,7 @@ class _NewGroceryScreenState extends State<NewGroceryScreen> {
             const NewGroceryHeaderWidget(),
             spaces.vSpace,
             const NewGroceryShoppingNameWidget(),
-            spaces.vSpace2,
+            spaces.vSpace6,
             //const NewGroceryAdditemButton(),
             //spaces.vSpace2,
           ],
