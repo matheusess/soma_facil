@@ -69,7 +69,7 @@ class _NewGroceryImageSelectSourceWidgetState
             ),
           ),
           const SizedBox(
-            height: 26,
+            height: 20,
           ),
           Row(
             children: [
@@ -145,8 +145,8 @@ class _NewGroceryImageSelectSourceWidgetState
     if (image != null) {
       CroppedFile? cropped = (await ImageCropper().cropImage(
         sourcePath: image.path,
-        aspectRatio: const CropAspectRatio(ratioX: 10, ratioY: 3),
-        compressQuality: 50,
+        aspectRatio: const CropAspectRatio(ratioX: 10, ratioY: 4),
+        compressQuality: 40,
         compressFormat: ImageCompressFormat.jpg,
       ));
 

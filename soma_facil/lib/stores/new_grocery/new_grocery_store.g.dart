@@ -245,13 +245,13 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
       Atom(name: 'NewGroceryStoreBase.reconizedTextList', context: context);
 
   @override
-  List<dynamic> get reconizedTextList {
+  ObservableList<dynamic> get reconizedTextList {
     _$reconizedTextListAtom.reportRead();
     return super.reconizedTextList;
   }
 
   @override
-  set reconizedTextList(List<dynamic> value) {
+  set reconizedTextList(ObservableList<dynamic> value) {
     _$reconizedTextListAtom.reportWrite(value, super.reconizedTextList, () {
       super.reconizedTextList = value;
     });

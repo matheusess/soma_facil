@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 import 'package:soma_facil/stores/new_grocery/new_grocery_store.dart';
 
@@ -14,12 +15,14 @@ class NewGroceryItemNameField extends StatefulWidget {
 
 class _NewGroceryItemNameFieldState extends State<NewGroceryItemNameField> {
   NewGroceryStore newGroceryStore = NewGroceryStore();
+  final TextEditingController _controller = TextEditingController();
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
 
     newGroceryStore = Provider.of<NewGroceryStore>(context);
+    _controller.text = newGroceryStore.itemName;
   }
 
   @override

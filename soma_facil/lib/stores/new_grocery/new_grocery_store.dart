@@ -44,7 +44,7 @@ abstract class NewGroceryStoreBase with Store {
       ObservableList<NewItemModel>.of([]);
 
   @observable
-  List reconizedTextList = List.of([]);
+  ObservableList reconizedTextList = ObservableList.of([]);
 
   /* 
   
@@ -151,9 +151,10 @@ abstract class NewGroceryStoreBase with Store {
     final recognized = await textRecognizer.processImage(image);
 
     for (var texts in recognized.blocks) {
+      print(texts.text.characters);
       reconizedTextList.add(texts.text.characters);
     }
-
+    isLoading = false;
     return recognized.blocks;
   }
 
