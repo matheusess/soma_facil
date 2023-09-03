@@ -1,3 +1,4 @@
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +17,7 @@ class NewGroceryItemListWidget extends StatefulWidget {
 class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
   final GlobalColors color = GlobalColors();
   final GlobalSpaces spaces = GlobalSpaces();
+  final GlobalTextStyle style = GlobalTextStyle();
 
   NewGroceryStore newGroceryStore = NewGroceryStore();
 
@@ -39,44 +41,80 @@ class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
               return Column(
                 children: [
                   Container(
-                    height: 96,
+                    height: 100,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: color.cardBackground,
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(16),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(8),
+                      padding: const EdgeInsets.only(left: 12),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          newGroceryStore.newGroceryList[index].productImage ==
-                                  null
-                              ? const Icon(Icons.abc)
-                              : Image.file(
-                                  newGroceryStore
-                                      .newGroceryList[index].productImage!,
-                                  scale: 3,
-                                ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 newGroceryStore
-                                    .newGroceryList[index].productName,
+                                    .newGroceryList[index].productName
+                                    .toUpperCase(),
+                                style: style.cardHeader,
                               ),
-                              Text(
-                                newGroceryStore
-                                    .newGroceryList[index].productPrice
-                                    .toString(),
+                              spaces.vSpace,
+                              Row(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Text(
+                                        'Preço',
+                                        style: style.cardSubHeader,
+                                      ),
+                                      _priceTransform(
+                                        price: newGroceryStore
+                                            .newGroceryList[index].productPrice,
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Text(
+                                        'Quantidade',
+                                        style: style.cardSubHeader,
+                                      ),
+                                      Text(
+                                        newGroceryStore.newGroceryList[index]
+                                            .productQuantity
+                                            .toString(),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Text(
+                                        'Total',
+                                        style: style.cardSubHeader,
+                                      ),
+                                      _totalTransform(
+                                        price: newGroceryStore
+                                            .newGroceryList[index]
+                                            .productTotalPrice,
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ],
                           ),
-                          /*Icon(
-                            Icons.add_a_photo,
-                            size: 38,
-                            color: color.darkGrey,
-                          ),*/
+                          IconButton(
+                            onPressed: () => print(index),
+                            icon: Icon(
+                              Icons.delete,
+                              size: 24,
+                              color: color.red,
+                            ),
+                          )
                         ],
                       ),
                     ),
@@ -96,6 +134,22 @@ class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
         ),
         const SizedBox(height: 40),
       ],
+    );
+  }
+
+  Widget _priceTransform({required double price}) {
+    var priceParsed = UtilBrasilFields.obterReal(price);
+    return Text(
+      priceParsed,
+      style: style.cardValue,
+    );
+  }
+
+  Widget _totalTransform({required double price}) {
+    var priceParsed = UtilBrasilFields.obterReal(price);
+    return Text(
+      priceParsed,
+      style: style.cardValue,
     );
   }
 }

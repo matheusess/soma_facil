@@ -1,9 +1,12 @@
 import 'dart:io';
 
 import 'package:brasil_fields/brasil_fields.dart';
+import 'package:flutter/material.dart';
+import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../model/new_item/new_item_model.dart';
+
 part 'new_grocery_store.g.dart';
 
 class NewGroceryStore = NewGroceryStoreBase with _$NewGroceryStore;
@@ -39,6 +42,9 @@ abstract class NewGroceryStoreBase with Store {
   @observable
   ObservableList<NewItemModel> newGroceryList =
       ObservableList<NewItemModel>.of([]);
+
+  @observable
+  List reconizedTextList = List.of([]);
 
   /* 
   
@@ -132,6 +138,23 @@ abstract class NewGroceryStoreBase with Store {
     }
     _clearItemData();
     isLoading = false;
+  }
+
+  @action
+  Future<List> recognizedText() async {
+    isLoading = true;
+
+    var textRecognizer = TextRecognizer();
+    reconizedTextList.clear();
+
+    final image = InputImage.fromFile(File(itemImage!.path));
+    final recognized = await textRecognizer.processImage(image);
+
+    for (var texts in recognized.blocks) {
+      reconizedTextList.add(texts.text.characters);
+    }
+
+    return recognized.blocks;
   }
 
   @action

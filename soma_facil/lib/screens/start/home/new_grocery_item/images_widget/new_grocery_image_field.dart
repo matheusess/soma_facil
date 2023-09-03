@@ -28,8 +28,9 @@ class _NewGroceryImageFieldState extends State<NewGroceryImageField> {
     super.didChangeDependencies();
     newGroceryStore = Provider.of<NewGroceryStore>(context);
 
-    /*autorun((_) {
+    autorun((_) {
       if (newGroceryStore.itemImage != null) {
+        newGroceryStore.recognizedText();
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -37,7 +38,7 @@ class _NewGroceryImageFieldState extends State<NewGroceryImageField> {
           ),
         );
       }
-    });*/
+    });
   }
 
   @override
@@ -96,7 +97,7 @@ class _NewGroceryImageFieldState extends State<NewGroceryImageField> {
 
   Widget _noPhoto() {
     return Container(
-      height: 96,
+      height: 118,
       width: double.infinity,
       decoration: BoxDecoration(
         color: color.cardBackground,
@@ -115,10 +116,10 @@ class _NewGroceryImageFieldState extends State<NewGroceryImageField> {
 
   Widget _hasPhoto() {
     return Container(
-      height: 96,
+      height: 118,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: color.green,
+        color: color.lightGrey,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(

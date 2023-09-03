@@ -241,6 +241,30 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
     });
   }
 
+  late final _$reconizedTextListAtom =
+      Atom(name: 'NewGroceryStoreBase.reconizedTextList', context: context);
+
+  @override
+  List<dynamic> get reconizedTextList {
+    _$reconizedTextListAtom.reportRead();
+    return super.reconizedTextList;
+  }
+
+  @override
+  set reconizedTextList(List<dynamic> value) {
+    _$reconizedTextListAtom.reportWrite(value, super.reconizedTextList, () {
+      super.reconizedTextList = value;
+    });
+  }
+
+  late final _$recognizedTextAsyncAction =
+      AsyncAction('NewGroceryStoreBase.recognizedText', context: context);
+
+  @override
+  Future<List<dynamic>> recognizedText() {
+    return _$recognizedTextAsyncAction.run(() => super.recognizedText());
+  }
+
   late final _$NewGroceryStoreBaseActionController =
       ActionController(name: 'NewGroceryStoreBase', context: context);
 
@@ -414,6 +438,7 @@ itemPrice: ${itemPrice},
 itemQuantity: ${itemQuantity},
 itemImage: ${itemImage},
 newGroceryList: ${newGroceryList},
+reconizedTextList: ${reconizedTextList},
 isItemNameValid: ${isItemNameValid},
 isItemPriceValid: ${isItemPriceValid},
 isNewItemValid: ${isNewItemValid}

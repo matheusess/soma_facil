@@ -1,6 +1,10 @@
 // ignore_for_file: unused_field
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:soma_facil/global/global_colors.dart';
+
+final GlobalColors color = GlobalColors();
 
 class GlobalSpaces {
   final SizedBox vSpace = const SizedBox(height: 8);
@@ -11,4 +15,38 @@ class GlobalSpaces {
   final SizedBox vSpace6 = const SizedBox(height: 38);
   final SizedBox vSpace7 = const SizedBox(height: 44);
   final SizedBox vSpace8 = const SizedBox(height: 56);
+}
+
+class GlobalTextStyle {
+  final cardHeader = GoogleFonts.nunito(
+    textStyle: TextStyle(
+      color: color.black,
+      fontWeight: FontWeight.w800,
+      fontSize: 14,
+    ),
+  );
+
+  final cardSubHeader = GoogleFonts.nunito(
+    textStyle: TextStyle(
+      color: color.black,
+      fontWeight: FontWeight.w600,
+      fontSize: 14,
+    ),
+  );
+
+  final cardValue = GoogleFonts.nunito(
+    textStyle: TextStyle(
+      color: color.black,
+      fontWeight: FontWeight.w400,
+      fontSize: 14,
+    ),
+  );
+
+  final cardValueHighLight = GoogleFonts.nunito(
+    textStyle: TextStyle(
+      color: color.black,
+      fontWeight: FontWeight.w600,
+      fontSize: 14,
+    ),
+  );
 }

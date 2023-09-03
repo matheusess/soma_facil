@@ -3,13 +3,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:soma_facil/global/global_colors.dart';
 import 'package:soma_facil/global/global_styles.dart';
-import 'package:soma_facil/global/global_text_field.dart';
 import 'package:soma_facil/screens/start/home/new_grocery_item/images_widget/new_grocery_image_field.dart';
 import 'package:soma_facil/screens/start/home/new_grocery_item/new_grocery_item_header_widget.dart';
 import 'package:soma_facil/stores/new_grocery/new_grocery_store.dart';
 
-import '../../../../global/global_currency_field.dart';
 import 'new_grocery_item_bottom_buttons.dart';
+import 'new_grocery_item_name_field.dart';
+import 'new_grocery_item_price_field.dart';
 import 'new_grocery_quantity_button.dart';
 import 'new_grocery_total_item_price_widget.dart';
 
@@ -52,11 +52,6 @@ class _NewGroceryItemScreenState extends State<NewGroceryItemScreen> {
               space.vSpace2,
               const NewGroceryImageField(),
               space.vSpace3,
-              /*Divider(
-                color: color.lightGrey,
-                height: 1,
-              ),*/
-              //space.vSpace3,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -90,21 +85,9 @@ class _NewGroceryItemScreenState extends State<NewGroceryItemScreen> {
                 ],
               ),
               space.vSpace2,
-              GlobalTextField(
-                initialValue: newGroceryStore.itemName,
-                placeHolder: 'Nome do produto',
-                keyboardType: TextInputType.text,
-                setAttribute: newGroceryStore.setItemName,
-                isEnable: true,
-              ),
+              const NewGroceryItemNameField(),
               space.vSpace3,
-              GlobalCurrencyField(
-                placeHolder: 'Preço',
-                initialValue: newGroceryStore.itemPriceStr,
-                keyboardType: TextInputType.number,
-                setAttribute: newGroceryStore.parseItemPrice,
-                isEnable: true,
-              ),
+              const NewGroceryItemPriceField(),
               space.vSpace3,
               const NewGroceryQuantityButton(),
               space.vSpace3,
