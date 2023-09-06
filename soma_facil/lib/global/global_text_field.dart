@@ -8,17 +8,19 @@ class GlobalTextField extends StatefulWidget {
   final bool isEnable;
   final Icon? prefixIcon;
   final String placeHolder;
-  final String initialValue;
+  final String? initialValue;
   final TextInputType keyboardType;
+  final TextEditingController controller;
   final void Function(String) setAttribute;
 
   const GlobalTextField({
     super.key,
     this.prefixIcon,
+    this.initialValue,
+    required this.controller,
     required this.placeHolder,
     required this.setAttribute,
     required this.isEnable,
-    required this.initialValue,
     required this.keyboardType,
   });
 
@@ -42,6 +44,7 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
         child: TextFormField(
           initialValue: widget.initialValue,
           onChanged: widget.setAttribute,
+          controller: widget.controller,
           enabled: widget.isEnable,
           autofocus: false,
           style: GoogleFonts.nunito(

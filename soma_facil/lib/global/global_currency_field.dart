@@ -11,11 +11,13 @@ class GlobalCurrencyField extends StatefulWidget {
   final TextInputType keyboardType;
   final bool isEnable;
   final void Function(String) setAttribute;
+  final TextEditingController controller;
   final String initialValue;
 
   const GlobalCurrencyField({
     super.key,
     required this.placeHolder,
+    required this.controller,
     required this.keyboardType,
     required this.setAttribute,
     required this.isEnable,

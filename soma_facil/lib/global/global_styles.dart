@@ -18,6 +18,13 @@ class GlobalSpaces {
 }
 
 class GlobalTextStyle {
+  final textHeader = GoogleFonts.nunito(
+    textStyle: TextStyle(
+      color: color.black,
+      fontWeight: FontWeight.w600,
+      fontSize: 14,
+    ),
+  );
   final cardHeader = GoogleFonts.nunito(
     textStyle: TextStyle(
       color: color.black,

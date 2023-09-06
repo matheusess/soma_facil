@@ -31,6 +31,38 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
               name: 'NewGroceryStoreBase.isNewItemValid'))
           .value;
 
+  late final _$itemNameControllerAtom =
+      Atom(name: 'NewGroceryStoreBase.itemNameController', context: context);
+
+  @override
+  TextEditingController get itemNameController {
+    _$itemNameControllerAtom.reportRead();
+    return super.itemNameController;
+  }
+
+  @override
+  set itemNameController(TextEditingController value) {
+    _$itemNameControllerAtom.reportWrite(value, super.itemNameController, () {
+      super.itemNameController = value;
+    });
+  }
+
+  late final _$itemPriceControllerAtom =
+      Atom(name: 'NewGroceryStoreBase.itemPriceController', context: context);
+
+  @override
+  TextEditingController get itemPriceController {
+    _$itemPriceControllerAtom.reportRead();
+    return super.itemPriceController;
+  }
+
+  @override
+  set itemPriceController(TextEditingController value) {
+    _$itemPriceControllerAtom.reportWrite(value, super.itemPriceController, () {
+      super.itemPriceController = value;
+    });
+  }
+
   late final _$isLoadingAtom =
       Atom(name: 'NewGroceryStoreBase.isLoading', context: context);
 
@@ -47,19 +79,35 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
     });
   }
 
-  late final _$removeCaractersAtom =
-      Atom(name: 'NewGroceryStoreBase.removeCaracters', context: context);
+  late final _$isPriceInvalidAtom =
+      Atom(name: 'NewGroceryStoreBase.isPriceInvalid', context: context);
 
   @override
-  String get removeCaracters {
-    _$removeCaractersAtom.reportRead();
-    return super.removeCaracters;
+  bool get isPriceInvalid {
+    _$isPriceInvalidAtom.reportRead();
+    return super.isPriceInvalid;
   }
 
   @override
-  set removeCaracters(String value) {
-    _$removeCaractersAtom.reportWrite(value, super.removeCaracters, () {
-      super.removeCaracters = value;
+  set isPriceInvalid(bool value) {
+    _$isPriceInvalidAtom.reportWrite(value, super.isPriceInvalid, () {
+      super.isPriceInvalid = value;
+    });
+  }
+
+  late final _$removeCharacterAtom =
+      Atom(name: 'NewGroceryStoreBase.removeCharacter', context: context);
+
+  @override
+  String get removeCharacter {
+    _$removeCharacterAtom.reportRead();
+    return super.removeCharacter;
+  }
+
+  @override
+  set removeCharacter(String value) {
+    _$removeCharacterAtom.reportWrite(value, super.removeCharacter, () {
+      super.removeCharacter = value;
     });
   }
 
@@ -241,19 +289,35 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
     });
   }
 
-  late final _$reconizedTextListAtom =
-      Atom(name: 'NewGroceryStoreBase.reconizedTextList', context: context);
+  late final _$reconizedNameListAtom =
+      Atom(name: 'NewGroceryStoreBase.reconizedNameList', context: context);
 
   @override
-  ObservableList<dynamic> get reconizedTextList {
-    _$reconizedTextListAtom.reportRead();
-    return super.reconizedTextList;
+  ObservableList<dynamic> get reconizedNameList {
+    _$reconizedNameListAtom.reportRead();
+    return super.reconizedNameList;
   }
 
   @override
-  set reconizedTextList(ObservableList<dynamic> value) {
-    _$reconizedTextListAtom.reportWrite(value, super.reconizedTextList, () {
-      super.reconizedTextList = value;
+  set reconizedNameList(ObservableList<dynamic> value) {
+    _$reconizedNameListAtom.reportWrite(value, super.reconizedNameList, () {
+      super.reconizedNameList = value;
+    });
+  }
+
+  late final _$reconizedPriceListAtom =
+      Atom(name: 'NewGroceryStoreBase.reconizedPriceList', context: context);
+
+  @override
+  ObservableList<dynamic> get reconizedPriceList {
+    _$reconizedPriceListAtom.reportRead();
+    return super.reconizedPriceList;
+  }
+
+  @override
+  set reconizedPriceList(ObservableList<dynamic> value) {
+    _$reconizedPriceListAtom.reportWrite(value, super.reconizedPriceList, () {
+      super.reconizedPriceList = value;
     });
   }
 
@@ -261,7 +325,7 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
       AsyncAction('NewGroceryStoreBase.recognizedText', context: context);
 
   @override
-  Future<List<dynamic>> recognizedText() {
+  Future<ObservableList<dynamic>> recognizedText() {
     return _$recognizedTextAsyncAction.run(() => super.recognizedText());
   }
 
@@ -296,6 +360,28 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
         name: 'NewGroceryStoreBase.setItemName');
     try {
       return super.setItemName(value);
+    } finally {
+      _$NewGroceryStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setItemNameFromImage(String value) {
+    final _$actionInfo = _$NewGroceryStoreBaseActionController.startAction(
+        name: 'NewGroceryStoreBase.setItemNameFromImage');
+    try {
+      return super.setItemNameFromImage(value);
+    } finally {
+      _$NewGroceryStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void parseItemPriceFromImage(String value) {
+    final _$actionInfo = _$NewGroceryStoreBaseActionController.startAction(
+        name: 'NewGroceryStoreBase.parseItemPriceFromImage');
+    try {
+      return super.parseItemPriceFromImage(value);
     } finally {
       _$NewGroceryStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -412,6 +498,17 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
   }
 
   @override
+  void itemDataClear() {
+    final _$actionInfo = _$NewGroceryStoreBaseActionController.startAction(
+        name: 'NewGroceryStoreBase.itemDataClear');
+    try {
+      return super.itemDataClear();
+    } finally {
+      _$NewGroceryStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void _clearItemData() {
     final _$actionInfo = _$NewGroceryStoreBaseActionController.startAction(
         name: 'NewGroceryStoreBase._clearItemData');
@@ -425,8 +522,11 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
   @override
   String toString() {
     return '''
+itemNameController: ${itemNameController},
+itemPriceController: ${itemPriceController},
 isLoading: ${isLoading},
-removeCaracters: ${removeCaracters},
+isPriceInvalid: ${isPriceInvalid},
+removeCharacter: ${removeCharacter},
 removeDots: ${removeDots},
 groceryName: ${groceryName},
 itemPriceStr: ${itemPriceStr},
@@ -438,7 +538,8 @@ itemPrice: ${itemPrice},
 itemQuantity: ${itemQuantity},
 itemImage: ${itemImage},
 newGroceryList: ${newGroceryList},
-reconizedTextList: ${reconizedTextList},
+reconizedNameList: ${reconizedNameList},
+reconizedPriceList: ${reconizedPriceList},
 isItemNameValid: ${isItemNameValid},
 isItemPriceValid: ${isItemPriceValid},
 isNewItemValid: ${isNewItemValid}

@@ -97,7 +97,7 @@ class _NewGroceryImageFieldState extends State<NewGroceryImageField> {
 
   Widget _noPhoto() {
     return Container(
-      height: 118,
+      height: 96,
       width: double.infinity,
       decoration: BoxDecoration(
         color: color.cardBackground,

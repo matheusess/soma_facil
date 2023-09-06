@@ -28,6 +28,7 @@ class _NewGroceryItemPriceFieldState extends State<NewGroceryItemPriceField> {
       placeHolder: 'Preço',
       initialValue: newGroceryStore.itemPriceStr,
       keyboardType: TextInputType.number,
+      controller: newGroceryStore.itemPriceController,
       setAttribute: newGroceryStore.parseItemPrice,
       isEnable: true,
     );

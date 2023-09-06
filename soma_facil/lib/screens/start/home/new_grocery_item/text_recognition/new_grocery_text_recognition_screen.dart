@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
-import 'package:soma_facil/global/global_colors.dart';
-import 'package:soma_facil/stores/new_grocery/new_grocery_store.dart';
+
+import '../../../../../global/global_colors.dart';
+import '../../../../../global/global_styles.dart';
+import '../../../../../stores/new_grocery/new_grocery_store.dart';
+import 'new_grocery_text_recognition_name_selection_widget.dart';
+import 'new_grocery_text_recognition_price_selection_widget.dart';
+import 'new_grocery_text_header_widget.dart';
 
 class NewGroceryTextRecognitionScreen extends StatefulWidget {
   const NewGroceryTextRecognitionScreen({super.key});
@@ -15,12 +21,50 @@ class NewGroceryTextRecognitionScreen extends StatefulWidget {
 class _NewGroceryTextRecognitionScreenState
     extends State<NewGroceryTextRecognitionScreen> {
   final GlobalColors color = GlobalColors();
+  final GlobalTextStyle style = GlobalTextStyle();
+  final GlobalSpaces spaces = GlobalSpaces();
+
   NewGroceryStore newGroceryStore = NewGroceryStore();
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     newGroceryStore = Provider.of<NewGroceryStore>(context);
+
+    autorun(
+      (p0) {
+        if (newGroceryStore.isPriceInvalid == true) {
+          final snackBar = SnackBar(
+            backgroundColor: color.orange,
+            content: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Preço não encontrado',
+                  style: GoogleFonts.poppins(
+                    textStyle: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 14,
+                    ),
+                  ),
+                ),
+                Icon(
+                  Icons.error,
+                  color: color.white,
+                ),
+              ],
+            ),
+            duration: const Duration(seconds: 4),
+          );
+
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          FocusScope.of(context).unfocus();
+          newGroceryStore.isPriceInvalid = false;
+        }
+      },
+    );
   }
 
   @override
@@ -28,64 +72,32 @@ class _NewGroceryTextRecognitionScreenState
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        toolbarHeight: 110,
+        title: const NewGrocerytextHeaderWidget(),
         automaticallyImplyLeading: false,
       ),
-      body: Column(
-        children: [
-          Text('Selecione o nome do produto'),
-          Observer(
-            builder: (_) => ListView.builder(
-              itemCount: newGroceryStore.reconizedTextList.length,
-              shrinkWrap: true,
-              physics: const ClampingScrollPhysics(),
-              itemBuilder: (context, index) {
-                return InkWell(
-                  child: Text(
-                    newGroceryStore.reconizedTextList[index].toString(),
-                    style: const TextStyle(
-                      color: Colors.black,
-                    ),
-                  ),
-                  onTap: () => {
-                    newGroceryStore.setItemName(
-                      newGroceryStore.reconizedTextList[index].toString(),
-                    ),
-                    print(newGroceryStore.itemName),
-                  },
-                );
-              },
-            ),
+      body: const SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              NewGroceryTextRecognitionNameSelectionWidget(),
+              NewGroceryTextRecognitionPriceSelectionWidget(),
+            ],
           ),
-          Text('Selecione o preço'),
-          Observer(
-            builder: (_) => ListView.builder(
-              itemCount: newGroceryStore.reconizedTextList.length,
-              shrinkWrap: true,
-              physics: const ClampingScrollPhysics(),
-              itemBuilder: (context, index) {
-                return InkWell(
-                  child: Text(
-                    newGroceryStore.reconizedTextList[index].toString(),
-                    style: const TextStyle(
-                      color: Colors.black,
-                    ),
-                  ),
-                  onTap: () => print(newGroceryStore.reconizedTextList[index]),
-                );
-              },
-            ),
-          ),
-        ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         heroTag: "backButton",
-        onPressed: () => Navigator.pop(
-          context,
-        ),
+        onPressed: () => {
+          Navigator.pop(
+            context,
+          ),
+        },
         backgroundColor: color.red,
         child: const Icon(Icons.arrow_back),
       ),
-      //floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
     );
   }
 }

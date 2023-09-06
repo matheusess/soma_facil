@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:brasil_fields/brasil_fields.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:mobx/mobx.dart';
@@ -19,10 +20,16 @@ abstract class NewGroceryStoreBase with Store {
   */
 
   @observable
-  bool isLoading = false;
+  TextEditingController itemNameController = TextEditingController();
 
   @observable
-  String removeCaracters = '', removeDots = '';
+  TextEditingController itemPriceController = TextEditingController();
+
+  @observable
+  bool isLoading = false, isPriceInvalid = false;
+
+  @observable
+  String removeCharacter = '', removeDots = '';
 
   @observable
   String groceryName = '',
@@ -44,7 +51,10 @@ abstract class NewGroceryStoreBase with Store {
       ObservableList<NewItemModel>.of([]);
 
   @observable
-  ObservableList reconizedTextList = ObservableList.of([]);
+  ObservableList reconizedNameList = ObservableList.of([]);
+
+  @observable
+  ObservableList reconizedPriceList = ObservableList.of([]);
 
   /* 
   
@@ -76,10 +86,33 @@ abstract class NewGroceryStoreBase with Store {
   void setItemName(String value) => itemName = value;
 
   @action
+  void setItemNameFromImage(String value) => {
+        itemNameController.text = value,
+        itemName = value,
+      };
+
+  @action
+  void parseItemPriceFromImage(String value) {
+    bool isParsedPrice = RegExp('[0-9]').hasMatch(value);
+    bool hasComma = RegExp(',').hasMatch(value);
+
+    if (isParsedPrice && hasComma) {
+      removeCharacter = value.replaceAll(RegExp(r'[a-zA-Z ]'), '');
+      removeDots = removeCharacter.replaceAll(RegExp(','), '.');
+
+      itemPriceController.text = removeDots;
+      itemPriceStr = 'R\$ $removeDots';
+      _setItemPrice(double.parse(removeDots));
+    } else {
+      isPriceInvalid = true;
+    }
+  }
+
+  @action
   void parseItemPrice(String value) => {
         itemPriceStr = value,
-        removeCaracters = value.replaceAll(RegExp('[R\$.]'), ''),
-        removeDots = removeCaracters.replaceAll(RegExp(','), '.'),
+        removeCharacter = value.replaceAll(RegExp('[R\$.]'), ''),
+        removeDots = removeCharacter.replaceAll(RegExp(','), '.'),
         _setItemPrice(double.parse(removeDots)),
         _updateItemPriceTotalizer(),
       };
@@ -141,21 +174,25 @@ abstract class NewGroceryStoreBase with Store {
   }
 
   @action
-  Future<List> recognizedText() async {
+  Future<ObservableList> recognizedText() async {
     isLoading = true;
 
     var textRecognizer = TextRecognizer();
-    reconizedTextList.clear();
+    reconizedNameList.clear();
+    reconizedPriceList.clear();
 
     final image = InputImage.fromFile(File(itemImage!.path));
     final recognized = await textRecognizer.processImage(image);
 
     for (var texts in recognized.blocks) {
-      print(texts.text.characters);
-      reconizedTextList.add(texts.text.characters);
+      if (kDebugMode) {
+        print(texts.lines);
+      }
+      reconizedNameList.add(texts.text.characters);
+      reconizedPriceList.add(texts.text.characters);
     }
     isLoading = false;
-    return recognized.blocks;
+    return reconizedNameList;
   }
 
   @action
@@ -164,8 +201,20 @@ abstract class NewGroceryStoreBase with Store {
   }
 
   @action
+  void itemDataClear() {
+    itemName = '';
+    itemNameController.text = '';
+    itemPrice = 0.0;
+    itemPriceStr = 'R\$ 0,00';
+    itemPriceTotalizer = 0.0;
+    itemPriceTotalizerStr = '0,00';
+    itemQuantity = 1;
+  }
+
+  @action
   void _clearItemData() {
     itemName = '';
+    itemNameController.text = '';
     itemPrice = 0.0;
     itemPriceStr = 'R\$ 0,00';
     itemPriceTotalizer = 0.0;

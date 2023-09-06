@@ -6,7 +6,6 @@ import 'package:soma_facil/global/global_colors.dart';
 import 'package:soma_facil/stores/new_grocery/new_grocery_store.dart';
 
 import '../../../../model/new_item/new_item_model.dart';
-import 'new_grocery_item_screen.dart';
 
 class NewGroceryItemBottomButtons extends StatefulWidget {
   const NewGroceryItemBottomButtons({super.key});
