@@ -2,38 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:soma_facil/global/global_colors.dart';
 
-class NewGroceryItemHeader extends StatefulWidget {
-  const NewGroceryItemHeader({super.key});
+class NewGroceryCheckoutHeaderWidget extends StatefulWidget {
+  const NewGroceryCheckoutHeaderWidget({super.key});
 
   @override
-  State<NewGroceryItemHeader> createState() => _NewGroceryItemHeaderState();
+  State<NewGroceryCheckoutHeaderWidget> createState() =>
+      _NewGroceryCheckoutHeaderWidgetState();
 }
 
-class _NewGroceryItemHeaderState extends State<NewGroceryItemHeader> {
-  GlobalColors color = GlobalColors();
+class _NewGroceryCheckoutHeaderWidgetState
+    extends State<NewGroceryCheckoutHeaderWidget> {
+  final GlobalColors color = GlobalColors();
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Text(
-              'Novo Item',
-              style: GoogleFonts.poppins(
-                textStyle: TextStyle(
-                  color: color.orangeDark,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 34,
-                ),
-              ),
+        Text(
+          'Checkout',
+          style: GoogleFonts.poppins(
+            textStyle: TextStyle(
+              color: color.orangeDark,
+              fontWeight: FontWeight.w700,
+              fontSize: 34,
             ),
-          ],
+          ),
         ),
         Text(
-          'Adicione um',
+          'Vamos conferir',
           style: GoogleFonts.nunito(
             textStyle: TextStyle(
               color: color.darkGrey,
@@ -43,7 +40,7 @@ class _NewGroceryItemHeaderState extends State<NewGroceryItemHeader> {
           ),
         ),
         Text(
-          'novo item',
+          'o valor dos produtos',
           style: GoogleFonts.nunito(
             textStyle: TextStyle(
               color: color.darkGrey,

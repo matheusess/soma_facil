@@ -33,7 +33,7 @@ class _NewGroceryTextRecognitionPriceSelectionWidgetState
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Agora selecione o preço',
+          'Preço do produto',
           style: style.textHeader,
         ),
         spaces.vSpace,

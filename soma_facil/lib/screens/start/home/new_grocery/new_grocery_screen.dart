@@ -11,6 +11,7 @@ import '../../../../stores/new_grocery/new_grocery_store.dart';
 import 'new_grocery_header_widget.dart';
 import 'new_grocery_no_data_widget.dart';
 import 'new_grocery_shopping_name_widget.dart';
+import 'new_grocery_sub_header_widget.dart';
 
 class NewGroceryScreen extends StatefulWidget {
   const NewGroceryScreen({super.key});
@@ -21,6 +22,7 @@ class NewGroceryScreen extends StatefulWidget {
 
 class _NewGroceryScreenState extends State<NewGroceryScreen> {
   NewGroceryStore newGroceryStore = NewGroceryStore();
+
   final GlobalColors color = GlobalColors();
   final GlobalSpaces spaces = GlobalSpaces();
 
@@ -35,7 +37,7 @@ class _NewGroceryScreenState extends State<NewGroceryScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: 260,
+        toolbarHeight: 316,
         automaticallyImplyLeading: false,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,11 +45,11 @@ class _NewGroceryScreenState extends State<NewGroceryScreen> {
           children: [
             spaces.vSpace,
             const NewGroceryHeaderWidget(),
-            spaces.vSpace,
+            spaces.vSpace3,
             const NewGroceryShoppingNameWidget(),
-            spaces.vSpace6,
-            //const NewGroceryAdditemButton(),
-            //spaces.vSpace2,
+            spaces.vSpace3,
+            const NewGrocerySubHeaderWidget(),
+            spaces.vSpace5,
           ],
         ),
       ),
@@ -67,7 +69,6 @@ class _NewGroceryScreenState extends State<NewGroceryScreen> {
           ),
         ),
       ),
-      //floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(left: 30),
         child: Row(

@@ -26,7 +26,7 @@ abstract class NewGroceryStoreBase with Store {
   TextEditingController itemPriceController = TextEditingController();
 
   @observable
-  bool isLoading = false, isPriceInvalid = false;
+  bool isLoading = false, isPriceInvalid = false, routedImageScreen = false;
 
   @observable
   String removeCharacter = '', removeDots = '';
@@ -77,7 +77,13 @@ abstract class NewGroceryStoreBase with Store {
   @*** Price calculation
   */
   @action
-  void setImageFile(File value) => itemImage = value;
+  void setImageFile(File value) => {
+        routedImageScreen = true,
+        itemImage = value,
+      };
+
+  @action
+  void setRoutedImageScreen() => routedImageScreen = false;
 
   @action
   void setGroceryName(String value) => groceryName = value;
@@ -153,6 +159,7 @@ abstract class NewGroceryStoreBase with Store {
   @action
   void addItem(NewItemModel item) {
     newGroceryList.add(item);
+    newGroceryList.sort(((a, b) => a.productName.compareTo(b.productName)));
     _updateTotal();
   }
 
@@ -169,12 +176,12 @@ abstract class NewGroceryStoreBase with Store {
     for (var i = 0; i < newGroceryList.length; i++) {
       groceryPriceTotalizer += newGroceryList[i].productTotalPrice;
     }
-    _clearItemData();
+    _clearNewItemData();
     isLoading = false;
   }
 
   @action
-  Future<ObservableList> recognizedText() async {
+  Future<void> recognizedText() async {
     isLoading = true;
 
     var textRecognizer = TextRecognizer();
@@ -192,7 +199,6 @@ abstract class NewGroceryStoreBase with Store {
       reconizedPriceList.add(texts.text.characters);
     }
     isLoading = false;
-    return reconizedNameList;
   }
 
   @action
@@ -212,13 +218,11 @@ abstract class NewGroceryStoreBase with Store {
   }
 
   @action
-  void _clearItemData() {
+  void _clearNewItemData() {
     itemName = '';
     itemNameController.text = '';
     itemPrice = 0.0;
     itemPriceStr = 'R\$ 0,00';
-    itemPriceTotalizer = 0.0;
-    itemPriceTotalizerStr = '0,00';
     itemQuantity = 1;
     itemImage = null;
   }

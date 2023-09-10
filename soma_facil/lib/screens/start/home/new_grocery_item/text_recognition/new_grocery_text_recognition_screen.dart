@@ -94,6 +94,7 @@ class _NewGroceryTextRecognitionScreenState
           Navigator.pop(
             context,
           ),
+          newGroceryStore.setRoutedImageScreen(),
         },
         backgroundColor: color.red,
         child: const Icon(Icons.arrow_back),

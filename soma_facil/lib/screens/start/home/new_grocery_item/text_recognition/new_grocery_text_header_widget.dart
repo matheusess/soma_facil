@@ -36,7 +36,7 @@ class _NewGrocerytextHeaderWidgetState
               'Imagem',
               style: GoogleFonts.poppins(
                 textStyle: TextStyle(
-                  color: color.green,
+                  color: color.cleanPurple,
                   fontWeight: FontWeight.w700,
                   fontSize: 34,
                 ),
@@ -45,7 +45,7 @@ class _NewGrocerytextHeaderWidgetState
           ],
         ),
         Text(
-          'Bora adicionar',
+          'Selecione o nome',
           style: GoogleFonts.nunito(
             textStyle: TextStyle(
               color: color.darkGrey,
@@ -55,7 +55,7 @@ class _NewGrocerytextHeaderWidgetState
           ),
         ),
         Text(
-          'um novo item?',
+          'e o preço do produto',
           style: GoogleFonts.nunito(
             textStyle: TextStyle(
               color: color.darkGrey,

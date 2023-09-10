@@ -15,6 +15,14 @@ class GlobalSpaces {
   final SizedBox vSpace6 = const SizedBox(height: 38);
   final SizedBox vSpace7 = const SizedBox(height: 44);
   final SizedBox vSpace8 = const SizedBox(height: 56);
+  final SizedBox hSpace = const SizedBox(width: 8);
+  final SizedBox hSpace2 = const SizedBox(width: 12);
+  final SizedBox hSpace3 = const SizedBox(width: 16);
+  final SizedBox hSpace4 = const SizedBox(width: 24);
+  final SizedBox hSpace5 = const SizedBox(width: 32);
+  final SizedBox hSpace6 = const SizedBox(width: 38);
+  final SizedBox hSpace7 = const SizedBox(width: 44);
+  final SizedBox hSpace8 = const SizedBox(width: 56);
 }
 
 class GlobalTextStyle {

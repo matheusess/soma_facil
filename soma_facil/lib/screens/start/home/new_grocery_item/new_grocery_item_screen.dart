@@ -69,7 +69,7 @@ class _NewGroceryItemScreenState extends State<NewGroceryItemScreen> {
                     style: GoogleFonts.nunito(
                       textStyle: TextStyle(
                         color: color.darkGrey,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                         fontSize: 14,
                       ),
                     ),
@@ -84,7 +84,7 @@ class _NewGroceryItemScreenState extends State<NewGroceryItemScreen> {
                   ),
                 ],
               ),
-              space.vSpace2,
+              space.vSpace3,
               const NewGroceryItemNameField(),
               space.vSpace3,
               const NewGroceryItemPriceField(),
@@ -98,7 +98,6 @@ class _NewGroceryItemScreenState extends State<NewGroceryItemScreen> {
         ),
       ),
       bottomSheet: const NewGroceryItemBottomButtons(),
-      //floatingActionButton: const NewGroceryItemBottomButtons(),
     );
   }
 }

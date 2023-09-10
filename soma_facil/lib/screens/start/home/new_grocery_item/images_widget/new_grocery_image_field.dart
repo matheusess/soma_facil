@@ -28,8 +28,8 @@ class _NewGroceryImageFieldState extends State<NewGroceryImageField> {
     super.didChangeDependencies();
     newGroceryStore = Provider.of<NewGroceryStore>(context);
 
-    autorun((_) {
-      if (newGroceryStore.itemImage != null) {
+    /* autorun((_) {
+      if (newGroceryStore.routedImageScreen) {
         newGroceryStore.recognizedText();
         Navigator.push(
           context,
@@ -38,7 +38,7 @@ class _NewGroceryImageFieldState extends State<NewGroceryImageField> {
           ),
         );
       }
-    });
+    });*/
   }
 
   @override

@@ -78,7 +78,7 @@ class _NewGroceryImageSelectSourceWidgetState
                 child: Column(
                   children: [
                     GlobalRoundedIconButton(
-                      backgroundColor: color.cleanPurple,
+                      backgroundColor: color.blueGreen,
                       icon: const Icon(
                         Icons.camera_alt_rounded,
                         size: 24,
@@ -107,7 +107,7 @@ class _NewGroceryImageSelectSourceWidgetState
               Column(
                 children: [
                   GlobalRoundedIconButton(
-                    backgroundColor: color.cleanPurple,
+                    backgroundColor: color.blueGreen,
                     icon: const Icon(
                       Icons.image_rounded,
                       size: 24.0,

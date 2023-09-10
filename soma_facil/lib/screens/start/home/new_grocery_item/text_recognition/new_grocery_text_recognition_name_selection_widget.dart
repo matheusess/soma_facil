@@ -34,7 +34,7 @@ class _NewGroceryTextRecognitionNameSelectionWidgetState
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Clique e selecione o nome do produto',
+          'Nome do produto',
           style: style.textHeader,
         ),
         spaces.vSpace,

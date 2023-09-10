@@ -95,6 +95,22 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
     });
   }
 
+  late final _$routedImageScreenAtom =
+      Atom(name: 'NewGroceryStoreBase.routedImageScreen', context: context);
+
+  @override
+  bool get routedImageScreen {
+    _$routedImageScreenAtom.reportRead();
+    return super.routedImageScreen;
+  }
+
+  @override
+  set routedImageScreen(bool value) {
+    _$routedImageScreenAtom.reportWrite(value, super.routedImageScreen, () {
+      super.routedImageScreen = value;
+    });
+  }
+
   late final _$removeCharacterAtom =
       Atom(name: 'NewGroceryStoreBase.removeCharacter', context: context);
 
@@ -325,7 +341,7 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
       AsyncAction('NewGroceryStoreBase.recognizedText', context: context);
 
   @override
-  Future<ObservableList<dynamic>> recognizedText() {
+  Future<void> recognizedText() {
     return _$recognizedTextAsyncAction.run(() => super.recognizedText());
   }
 
@@ -338,6 +354,17 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
         name: 'NewGroceryStoreBase.setImageFile');
     try {
       return super.setImageFile(value);
+    } finally {
+      _$NewGroceryStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setRoutedImageScreen() {
+    final _$actionInfo = _$NewGroceryStoreBaseActionController.startAction(
+        name: 'NewGroceryStoreBase.setRoutedImageScreen');
+    try {
+      return super.setRoutedImageScreen();
     } finally {
       _$NewGroceryStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -509,11 +536,11 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
   }
 
   @override
-  void _clearItemData() {
+  void _clearNewItemData() {
     final _$actionInfo = _$NewGroceryStoreBaseActionController.startAction(
-        name: 'NewGroceryStoreBase._clearItemData');
+        name: 'NewGroceryStoreBase._clearNewItemData');
     try {
-      return super._clearItemData();
+      return super._clearNewItemData();
     } finally {
       _$NewGroceryStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -526,6 +553,7 @@ itemNameController: ${itemNameController},
 itemPriceController: ${itemPriceController},
 isLoading: ${isLoading},
 isPriceInvalid: ${isPriceInvalid},
+routedImageScreen: ${routedImageScreen},
 removeCharacter: ${removeCharacter},
 removeDots: ${removeDots},
 groceryName: ${groceryName},
