@@ -90,7 +90,7 @@ class _NewGroceryScreenState extends State<NewGroceryScreen> {
                   builder: (context) => const NewGroceryItemScreen(),
                 ),
               ),
-              backgroundColor: color.green,
+              backgroundColor: color.blue,
               icon: const Icon(Icons.add),
               label: Text(
                 'Novo Item',

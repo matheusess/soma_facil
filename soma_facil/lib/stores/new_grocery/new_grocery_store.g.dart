@@ -30,6 +30,20 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
       (_$isNewItemValidComputed ??= Computed<bool>(() => super.isNewItemValid,
               name: 'NewGroceryStoreBase.isNewItemValid'))
           .value;
+  Computed<bool>? _$isCheckoutValidComputed;
+
+  @override
+  bool get isCheckoutValid =>
+      (_$isCheckoutValidComputed ??= Computed<bool>(() => super.isCheckoutValid,
+              name: 'NewGroceryStoreBase.isCheckoutValid'))
+          .value;
+  Computed<bool>? _$isNewGroceyValidComputed;
+
+  @override
+  bool get isNewGroceyValid => (_$isNewGroceyValidComputed ??= Computed<bool>(
+          () => super.isNewGroceyValid,
+          name: 'NewGroceryStoreBase.isNewGroceyValid'))
+      .value;
 
   late final _$itemNameControllerAtom =
       Atom(name: 'NewGroceryStoreBase.itemNameController', context: context);
@@ -570,7 +584,9 @@ reconizedNameList: ${reconizedNameList},
 reconizedPriceList: ${reconizedPriceList},
 isItemNameValid: ${isItemNameValid},
 isItemPriceValid: ${isItemPriceValid},
-isNewItemValid: ${isNewItemValid}
+isNewItemValid: ${isNewItemValid},
+isCheckoutValid: ${isCheckoutValid},
+isNewGroceyValid: ${isNewGroceyValid}
     ''';
   }
 }

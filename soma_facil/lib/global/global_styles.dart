@@ -64,4 +64,12 @@ class GlobalTextStyle {
       fontSize: 14,
     ),
   );
+
+  final cardValueHighLightLarge = GoogleFonts.nunito(
+    textStyle: TextStyle(
+      color: color.black,
+      fontWeight: FontWeight.w700,
+      fontSize: 22,
+    ),
+  );
 }

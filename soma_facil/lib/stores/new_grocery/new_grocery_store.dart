@@ -71,6 +71,14 @@ abstract class NewGroceryStoreBase with Store {
   @computed
   bool get isNewItemValid => isItemNameValid && isItemPriceValid;
 
+  @computed
+  bool get isCheckoutValid =>
+      newGroceryList.isNotEmpty && groceryName.isNotEmpty;
+
+  @computed
+  bool get isNewGroceyValid =>
+      newGroceryList.isNotEmpty && groceryName.isNotEmpty;
+
   /*
 
   @Action

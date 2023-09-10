@@ -30,7 +30,7 @@ class _NewGroceryCheckoutHeaderWidgetState
           ),
         ),
         Text(
-          'Vamos conferir',
+          'Vamos conferir o',
           style: GoogleFonts.nunito(
             textStyle: TextStyle(
               color: color.darkGrey,
@@ -40,7 +40,7 @@ class _NewGroceryCheckoutHeaderWidgetState
           ),
         ),
         Text(
-          'o valor dos produtos',
+          'valor dos produtos',
           style: GoogleFonts.nunito(
             textStyle: TextStyle(
               color: color.darkGrey,

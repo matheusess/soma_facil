@@ -40,7 +40,7 @@ class _NewGrocerySubHeaderWidgetState extends State<NewGrocerySubHeaderWidget> {
           children: [
             _totalPrice(total: newGroceryStore.groceryPriceTotalizer),
             ElevatedButton.icon(
-              onPressed: () => newGroceryStore.newGroceryList.isEmpty
+              onPressed: () => !newGroceryStore.isCheckoutValid
                   ? null
                   : Navigator.push(
                       context,
@@ -51,12 +51,11 @@ class _NewGrocerySubHeaderWidgetState extends State<NewGrocerySubHeaderWidget> {
               icon: Icon(
                 Icons.shopping_cart,
                 size: 24.0,
-                color: newGroceryStore.newGroceryList.isEmpty
-                    ? color.black
-                    : color.white,
+                color:
+                    !newGroceryStore.isCheckoutValid ? color.grey : color.white,
               ),
               style: ElevatedButton.styleFrom(
-                backgroundColor: newGroceryStore.newGroceryList.isEmpty
+                backgroundColor: !newGroceryStore.isCheckoutValid
                     ? color.cardBackground
                     : color.green, // Background color
               ),
@@ -64,8 +63,8 @@ class _NewGrocerySubHeaderWidgetState extends State<NewGrocerySubHeaderWidget> {
                 'Ir para o caixa',
                 style: GoogleFonts.nunito(
                   textStyle: TextStyle(
-                    color: newGroceryStore.newGroceryList.isEmpty
-                        ? color.black
+                    color: !newGroceryStore.isCheckoutValid
+                        ? color.grey
                         : color.white,
                     fontWeight: FontWeight.w800,
                     fontSize: 14,

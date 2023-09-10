@@ -31,7 +31,7 @@ class _NewGroceryShoppingNameWidgetState
       height: 120,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.3),
@@ -68,6 +68,7 @@ class _NewGroceryShoppingNameWidgetState
               ],
             ),
             TextFormField(
+              initialValue: newGroceryStore.groceryName,
               onChanged: newGroceryStore.setGroceryName,
               autofocus: false,
               style: GoogleFonts.nunito(
