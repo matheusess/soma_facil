@@ -29,8 +29,30 @@ class _NewGroceryCheckoutBottomButtonsState
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 30),
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 1,
+            blurRadius: 9,
+            offset: const Offset(6, 0), // changes position of shadow
+          ),
+        ],
+        color: Colors.white,
+        border: Border(
+          top: BorderSide(
+            color: color.cardBackground,
+            width: 1,
+          ),
+        ),
+      ),
+      padding: const EdgeInsets.only(
+        left: 16,
+        right: 16,
+        bottom: 42,
+        top: 16,
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

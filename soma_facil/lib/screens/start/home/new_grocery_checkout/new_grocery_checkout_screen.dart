@@ -52,19 +52,22 @@ class _NewGroceryCheckoutScreenState extends State<NewGroceryCheckoutScreen> {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Observer(
-          builder: (_) => ListView.builder(
-            itemCount: newGroceryStore.newGroceryList.length,
-            shrinkWrap: true,
-            physics: const ClampingScrollPhysics(),
-            itemBuilder: (context, index) =>
-                NewGroceryCheckoutItemListWidget(index: index),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Observer(
+            builder: (_) => ListView.builder(
+              itemCount: newGroceryStore.newGroceryList.length,
+              shrinkWrap: true,
+              physics: const ClampingScrollPhysics(),
+              itemBuilder: (context, index) =>
+                  NewGroceryCheckoutItemListWidget(index: index),
+            ),
           ),
         ),
       ),
-      floatingActionButton: const NewGroceryCheckoutBottomButtons(),
+      bottomNavigationBar: const NewGroceryCheckoutBottomButtons(),
+      //floatingActionButton: const NewGroceryCheckoutBottomButtons(),
     );
   }
 }

@@ -51,7 +51,7 @@ class _NewGroceryCheckoutSubHeaderWidgetState
         children: [
           _total(),
           _totalChecked(),
-          _totalItens(),
+          Observer(builder: (_) => _totalItens()),
         ],
       ),
     );

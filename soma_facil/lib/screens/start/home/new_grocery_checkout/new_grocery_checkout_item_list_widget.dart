@@ -1,5 +1,6 @@
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:soma_facil/global/global_colors.dart';
 import 'package:soma_facil/global/global_styles.dart';
@@ -47,93 +48,102 @@ class _NewGroceryCheckoutItemListWidgetState
               ),
             ],
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
             children: [
-              Expanded(
-                flex: 1,
-                child: Icon(
-                  Icons.more_vert,
-                  size: 24,
-                  color: color.purple,
-                ),
-              ),
-              Expanded(
-                flex: 5,
-                child: Icon(
-                  Icons.more_vert,
-                  size: 24,
-                  color: color.purple,
-                ),
-              ),
-              Expanded(
-                flex: 5,
-                child: Icon(
-                  Icons.more_vert,
-                  size: 24,
-                  color: color.purple,
-                ),
-              ),
-              /*GestureDetector(
-                onTap: () => print('expandir'),
-                child: Column(
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 12),
-                          child: Icon(
-                            Icons.more_vert,
-                            size: 24,
-                            color: color.purple,
-                          ),
-                        ),
-                        Text(
-                          newGroceryStore
-                              .newGroceryList[widget.index].productName,
-                          style: style.cardHeader,
-                        ),
-                      ],
+                    Expanded(
+                      flex: 1,
+                      child: Icon(
+                        Icons.arrow_circle_up,
+                        size: 24,
+                        color: color.purple,
+                      ),
                     ),
-                    Row(
-                      children: [
-                        _price(index: widget.index),
-                        _quantity(index: widget.index),
-                        _total(index: widget.index),
-                      ],
+                    Expanded(
+                      flex: 8,
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                newGroceryStore
+                                    .newGroceryList[widget.index].productName,
+                                style: style.cardHeader,
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Expanded(
+                                flex: 3,
+                                child: _price(index: widget.index),
+                              ),
+                              Expanded(
+                                flex: 6,
+                                child: _quantity(index: widget.index),
+                              ),
+                              Expanded(
+                                flex: 5,
+                                child: _total(index: widget.index),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
-              ),*/
+              ),
               Row(
                 children: [
-                  GestureDetector(
-                    onTap: () => print('CHECKOU'),
-                    child: Container(
-                      color: const Color.fromARGB(255, 221, 246, 255),
-                      padding: const EdgeInsets.all(12),
-                      child: Icon(
-                        Icons.check,
-                        color: color.green,
-                        size: 24,
+                  Expanded(
+                    flex: 6,
+                    child: GestureDetector(
+                      onLongPress: () =>
+                          newGroceryStore.removeItem(widget.index),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          color: Color.fromARGB(255, 255, 221, 221),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(12),
+                          ),
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 6,
+                        ),
+                        child: Icon(
+                          Icons.delete_forever,
+                          color: color.red,
+                          size: 24,
+                        ),
                       ),
                     ),
                   ),
-                  GestureDetector(
-                    onLongPress: () => print('CANCELOU'),
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        color: Color.fromARGB(255, 255, 221, 221),
-                        borderRadius: BorderRadius.only(
-                          bottomRight: Radius.circular(12),
-                          topRight: Radius.circular(12),
+                  Expanded(
+                    flex: 6,
+                    child: GestureDetector(
+                      onTap: () => print('CHECKOU'),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          color: Color.fromARGB(255, 228, 255, 221),
+                          borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(12),
+                          ),
                         ),
-                      ),
-                      padding: const EdgeInsets.all(12),
-                      child: Icon(
-                        Icons.delete_forever,
-                        color: color.red,
-                        size: 24,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 6,
+                        ),
+                        child: Icon(
+                          Icons.check,
+                          color: color.green,
+                          size: 24,
+                        ),
                       ),
                     ),
                   ),
@@ -142,7 +152,7 @@ class _NewGroceryCheckoutItemListWidgetState
             ],
           ),
         ),
-        space.vSpace4
+        space.vSpace4,
       ],
     );
   }
@@ -151,7 +161,13 @@ class _NewGroceryCheckoutItemListWidgetState
     var priceParsed = UtilBrasilFields.obterReal(price);
     return Text(
       priceParsed,
-      style: style.cardValue,
+      style: GoogleFonts.nunito(
+        textStyle: TextStyle(
+          color: color.black,
+          fontWeight: FontWeight.w700,
+          fontSize: 14,
+        ),
+      ),
     );
   }
 
@@ -159,7 +175,13 @@ class _NewGroceryCheckoutItemListWidgetState
     var priceParsed = UtilBrasilFields.obterReal(price);
     return Text(
       priceParsed,
-      style: style.cardValue,
+      style: GoogleFonts.nunito(
+        textStyle: TextStyle(
+          color: color.black,
+          fontWeight: FontWeight.w700,
+          fontSize: 14,
+        ),
+      ),
     );
   }
 
@@ -172,8 +194,7 @@ class _NewGroceryCheckoutItemListWidgetState
           style: style.cardSubHeader,
         ),
         _priceTransform(
-          price: newGroceryStore.newGroceryList[index].productPrice,
-        ),
+            price: newGroceryStore.newGroceryList[index].productPrice),
       ],
     );
   }
@@ -187,6 +208,13 @@ class _NewGroceryCheckoutItemListWidgetState
         ),
         Text(
           newGroceryStore.newGroceryList[index].productQuantity.toString(),
+          style: GoogleFonts.nunito(
+            textStyle: TextStyle(
+              color: color.black,
+              fontWeight: FontWeight.w700,
+              fontSize: 14,
+            ),
+          ),
         ),
       ],
     );

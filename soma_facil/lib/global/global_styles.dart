@@ -15,6 +15,8 @@ class GlobalSpaces {
   final SizedBox vSpace6 = const SizedBox(height: 38);
   final SizedBox vSpace7 = const SizedBox(height: 44);
   final SizedBox vSpace8 = const SizedBox(height: 56);
+  final SizedBox vSpace9 = const SizedBox(height: 68);
+  final SizedBox vSpace10 = const SizedBox(height: 78);
   final SizedBox hSpace = const SizedBox(width: 8);
   final SizedBox hSpace2 = const SizedBox(width: 12);
   final SizedBox hSpace3 = const SizedBox(width: 16);

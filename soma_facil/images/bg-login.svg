@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" viewBox="0 0 600 750" height="1000" version="1.0">
+    <defs>
+        <clipPath id="a">
+            <path d="M0 251.215h600V750H0Zm0 0"/>
+        </clipPath>
+        <clipPath id="b">
+            <path d="M268.273 251.215c-183.207 0-331.726 148.52-331.726 331.726 0 183.207 148.52 331.727 331.726 331.727C451.48 914.668 600 766.148 600 582.941c0-183.207-148.52-331.726-331.727-331.726Zm0 0"/>
+        </clipPath>
+        <clipPath id="c">
+            <path d="M10.29 21.441h322.769v322.766H10.289Zm0 0"/>
+        </clipPath>
+        <clipPath id="d">
+            <path d="M171.672 21.441c-89.129 0-161.383 72.254-161.383 161.383 0 89.13 72.254 161.383 161.383 161.383 89.133 0 161.387-72.254 161.387-161.383S260.805 21.441 171.672 21.441Zm0 0"/>
+        </clipPath>
+    </defs>
+    <path fill="#fff" d="M-60-75h720v900H-60z"/>
+    <path fill="#fff" d="M-60-75h720v900H-60z"/>
+    <g clip-path="url(#a)">
+        <g clip-path="url(#b)">
+            <path fill="#ffc100" d="M-63.453 251.215H600v663.453H-63.453Zm0 0"/>
+        </g>
+    </g>
+    <g clip-path="url(#c)">
+        <g clip-path="url(#d)">
+            <path fill="#ffc100" d="M10.29 21.441h322.769v322.766H10.289Zm0 0"/>
+        </g>
+    </g>
+</svg>
