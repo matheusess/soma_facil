@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
 import 'package:soma_facil/global/global_styles.dart';
 import 'package:soma_facil/screens/start/home/new_grocery_item/images_widget/new_grocery_image_select_source_widget.dart';
-import 'package:soma_facil/screens/start/home/new_grocery_item/text_recognition/new_grocery_text_recognition_screen.dart';
 import 'package:soma_facil/stores/new_grocery/new_grocery_store.dart';
 
 import '../../../../../global/global_colors.dart';

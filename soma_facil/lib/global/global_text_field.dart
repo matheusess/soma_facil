@@ -38,9 +38,9 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: const Color.fromARGB(255, 240, 240, 240),
+          color: const Color.fromARGB(255, 255, 255, 255),
         ),
-        height: 64,
+        height: 60,
         child: TextFormField(
           initialValue: widget.initialValue,
           onChanged: widget.setAttribute,
@@ -57,7 +57,7 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
           ),
           decoration: InputDecoration(
             prefixIcon: widget.prefixIcon,
-            fillColor: const Color.fromARGB(255, 240, 240, 240),
+            fillColor: const Color.fromARGB(255, 255, 255, 255),
             filled: true,
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 18.0, vertical: 2.0),
@@ -72,16 +72,16 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
             ),
             disabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(
-                color: Color.fromARGB(255, 240, 240, 240),
+                color: Color.fromARGB(255, 255, 255, 255),
                 width: 1,
               ),
               borderRadius: BorderRadius.all(
                 Radius.circular(90.0),
               ),
             ),
-            enabledBorder: const OutlineInputBorder(
+            /* enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(
-                color: Color.fromARGB(255, 240, 240, 240),
+                color: Color.fromARGB(255, 255, 255, 255),
                 width: 1,
               ),
               borderRadius: BorderRadius.all(
@@ -90,13 +90,13 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
             ),
             focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(
-                color: Color.fromARGB(255, 240, 240, 240),
+                color: Color.fromARGB(255, 255, 255, 255),
                 width: 1,
               ),
               borderRadius: BorderRadius.all(
                 Radius.circular(90.0),
               ),
-            ),
+            ),*/
           ),
           keyboardType: widget.keyboardType,
         ),
