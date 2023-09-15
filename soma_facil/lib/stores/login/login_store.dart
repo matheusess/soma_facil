@@ -17,6 +17,7 @@ abstract class LoginStoreBase with Store {
   @Variables
 
   */
+
   @observable
   bool isLoading = false,
       isGoogleLoading = false,

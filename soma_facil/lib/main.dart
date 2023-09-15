@@ -47,12 +47,12 @@ class MyApp extends StatelessWidget {
         ],
         theme: ThemeData(
           useMaterial3: true,
-          primaryColor: color.purple,
+          primaryColor: color.orangeDark,
           colorScheme: ColorScheme.fromSwatch().copyWith(
-            secondary: color.purple,
+            secondary: color.orangeDark,
           ),
           textSelectionTheme: TextSelectionThemeData(
-            cursorColor: color.purple, //<-- SEE HERE
+            cursorColor: color.orangeDark, //<-- SEE HERE
           ),
         ),
         debugShowCheckedModeBanner: false,

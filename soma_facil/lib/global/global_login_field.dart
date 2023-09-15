@@ -10,14 +10,12 @@ class GlobalLoginField extends StatefulWidget {
   final String placeHolder;
   final String? initialValue;
   final TextInputType keyboardType;
-  final TextEditingController controller;
   final void Function(String) setAttribute;
 
   const GlobalLoginField({
     super.key,
     this.prefixIcon,
     this.initialValue,
-    required this.controller,
     required this.placeHolder,
     required this.setAttribute,
     required this.isEnable,
@@ -38,20 +36,12 @@ class _GlobalLoginFieldState extends State<GlobalLoginField> {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Color.fromARGB(255, 255, 255, 255),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.3),
-              spreadRadius: 5,
-              blurRadius: 9,
-            ),
-          ],
+          color: Color.fromARGB(255, 242, 242, 242),
         ),
         height: 64,
         child: TextFormField(
           initialValue: widget.initialValue,
           onChanged: widget.setAttribute,
-          controller: widget.controller,
           enabled: widget.isEnable,
           autofocus: false,
           style: GoogleFonts.nunito(
@@ -64,7 +54,7 @@ class _GlobalLoginFieldState extends State<GlobalLoginField> {
           ),
           decoration: InputDecoration(
             prefixIcon: widget.prefixIcon,
-            fillColor: Color.fromARGB(255, 255, 255, 255),
+            fillColor: Color.fromARGB(255, 242, 242, 242),
             filled: true,
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 18.0, vertical: 2.0),
@@ -79,7 +69,7 @@ class _GlobalLoginFieldState extends State<GlobalLoginField> {
             ),
             disabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(
-                color: Color.fromARGB(255, 255, 255, 255),
+                color: Color.fromARGB(255, 242, 242, 242),
                 width: 1,
               ),
               borderRadius: BorderRadius.all(
@@ -88,7 +78,7 @@ class _GlobalLoginFieldState extends State<GlobalLoginField> {
             ),
             enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(
-                color: Color.fromARGB(255, 255, 255, 255),
+                color: Color.fromARGB(255, 242, 242, 242),
                 width: 1,
               ),
               borderRadius: BorderRadius.all(
@@ -97,7 +87,7 @@ class _GlobalLoginFieldState extends State<GlobalLoginField> {
             ),
             focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(
-                color: Color.fromARGB(255, 240, 240, 240),
+                color: Color.fromARGB(255, 242, 242, 242),
                 width: 1,
               ),
               borderRadius: BorderRadius.all(
