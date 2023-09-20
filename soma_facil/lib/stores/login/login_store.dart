@@ -19,15 +19,78 @@ abstract class LoginStoreBase with Store {
   */
 
   @observable
+  String name = '', email = '', password = '', confirmPassword = '';
+
+  @observable
   bool isLoading = false,
       isGoogleLoading = false,
       isLogged = false,
+      getSuccess = false,
+      isPasswordObscure = true,
+      isConfirmPasswordObscure = true,
       getError = false;
 
   /*
+   @action
+  */
+  @action
+  void setName(String value) => name = value;
 
+  @action
+  void setEmail(String value) => email = value;
+
+  @action
+  void setPassword(String value) => password = value;
+
+  @action
+  void setConfirmationPassword(String value) => confirmPassword = value;
+
+  @action
+  void setPasswordObscure() => isPasswordObscure = !isPasswordObscure;
+
+  @action
+  void setConfirmPasswordObscure() =>
+      isConfirmPasswordObscure = !isConfirmPasswordObscure;
+
+  /*
+   @computed
+  */
+  @computed
+  bool get isNameValid => name.length > 4;
+
+  @computed
+  bool get isEmailValid =>
+      RegExp(r"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$").hasMatch(email);
+
+  @computed
+  bool get isPasswordValid =>
+      RegExp(r"^.*(?=.{9,})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$")
+          .hasMatch(password);
+
+  @computed
+  bool get isConfirmedPasswordValid => confirmPassword == password;
+
+  @computed
+  bool get hasOneUpperCase => RegExp("[A-Z]").hasMatch(password);
+
+  @computed
+  bool get hasSpecialCharacter => RegExp("[!@#%^&*]").hasMatch(password);
+
+  @computed
+  bool get hasNumberCharacter => RegExp("[0-9]{2}").hasMatch(password);
+
+  @computed
+  bool get hasMinimumCharacter => password.length > 8;
+
+  @computed
+  bool get isNewUserValid =>
+      isNameValid &&
+      isEmailValid &&
+      isPasswordValid &&
+      isConfirmedPasswordValid;
+
+  /*
   @Firebase methods
-
   */
   @action
   Future<void> googleLogin() async {
@@ -101,6 +164,18 @@ abstract class LoginStoreBase with Store {
               isGoogleLoading = false,
             })
         .onError((error, stackTrace) => {getError = true});
+    isLoading = false;
+  }
+
+  @action
+  Future<void> recoveryPassword() async {
+    isLoading = true;
+    await _auth.sendPasswordResetEmail(email: email).then((value) {
+      getSuccess = true;
+    }).catchError((err) {
+      getSuccess = true;
+      print(err.toString());
+    });
     isLoading = false;
   }
 

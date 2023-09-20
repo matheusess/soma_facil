@@ -31,7 +31,7 @@ class _NewGroceryTextRecognitionBottomButtonState
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: color.lemon,
+      color: color.black,
       padding: const EdgeInsets.only(
         left: 30,
         right: 0,

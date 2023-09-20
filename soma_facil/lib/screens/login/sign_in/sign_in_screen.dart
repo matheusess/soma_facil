@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:soma_facil/global/global_back_button.dart';
+import 'package:soma_facil/global/global_styles.dart';
+import 'package:soma_facil/screens/login/sign_in/sign_in_bottom_buttons_widget.dart';
+import 'package:soma_facil/screens/login/sign_in/sign_in_chip_row_widget.dart';
+import 'package:soma_facil/screens/login/sign_in/sign_in_confirm_password.dart';
+import 'package:soma_facil/screens/login/sign_in/sign_in_email_field.dart';
+
+import 'package:soma_facil/screens/login/sign_in/sign_in_header_widget.dart';
+import 'package:soma_facil/screens/login/sign_in/sign_in_name_field.dart';
+import 'package:soma_facil/screens/login/sign_in/sign_in_password_field.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -9,16 +17,33 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+  final GlobalSpaces spaces = GlobalSpaces();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: GlobalBackButton(
-          onPressed: () => Navigator.pop(context),
+        title: const SignInHeaderWidget(),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          children: [
+            const SignInNameField(),
+            spaces.vSpace3,
+            const SignInEmailField(),
+            spaces.vSpace3,
+            const SignInPasswordFiled(),
+            spaces.vSpace3,
+            const SignInConfirmPassword(),
+            spaces.vSpace3,
+            const SignInChipRowWidget()
+          ],
         ),
       ),
-      body: Center(),
+      bottomNavigationBar: const SignInBottomButtonsWidget(),
     );
   }
 }

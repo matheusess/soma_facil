@@ -18,10 +18,10 @@ class GlobalGradientButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: isFluid ? double.infinity : 120,
-      height: 50,
+      height: 54,
       decoration: BoxDecoration(
         gradient: gradient,
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(15),
         // boxShadow: [
         //   BoxShadow(
         //     color: Colors.grey[500],

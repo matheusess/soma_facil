@@ -24,7 +24,7 @@ class _NewGroceryItemHeaderState extends State<NewGroceryItemHeader> {
               'Novo Item',
               style: GoogleFonts.poppins(
                 textStyle: TextStyle(
-                  color: color.orangeDark,
+                  color: color.orange,
                   fontWeight: FontWeight.w700,
                   fontSize: 34,
                 ),

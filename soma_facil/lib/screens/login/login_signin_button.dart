@@ -37,7 +37,7 @@ class _LoginSignInButtonState extends State<LoginSignInButton> {
             'Crie já!',
             style: GoogleFonts.quicksand(
               textStyle: TextStyle(
-                color: color.orangeDark,
+                color: color.darkOrange,
                 fontWeight: FontWeight.w800,
                 fontSize: 14,
               ),

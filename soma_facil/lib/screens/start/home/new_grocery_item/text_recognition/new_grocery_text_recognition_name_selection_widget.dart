@@ -42,7 +42,7 @@ class _NewGroceryTextRecognitionNameSelectionWidgetState
           builder: (_) => Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: color.lemon,
+              color: color.black,
               borderRadius: BorderRadius.circular(50),
             ),
             child: Text(

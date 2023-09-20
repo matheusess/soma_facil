@@ -56,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             Stack(
               children: [
-                Image.asset('images/bg-login3.png'),
+                Image.asset('images/bg-login7.png'),
                 Container(
                   padding: const EdgeInsets.only(
                     top: 92,

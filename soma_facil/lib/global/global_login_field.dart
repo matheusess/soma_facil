@@ -7,6 +7,8 @@ import 'global_colors.dart';
 class GlobalLoginField extends StatefulWidget {
   final bool isEnable;
   final Icon? prefixIcon;
+  final IconButton? sufixIcon;
+  final bool? isObscureText;
   final String placeHolder;
   final String? initialValue;
   final TextInputType keyboardType;
@@ -15,6 +17,8 @@ class GlobalLoginField extends StatefulWidget {
   const GlobalLoginField({
     super.key,
     this.prefixIcon,
+    this.sufixIcon,
+    this.isObscureText,
     this.initialValue,
     required this.placeHolder,
     required this.setAttribute,
@@ -35,8 +39,8 @@ class _GlobalLoginFieldState extends State<GlobalLoginField> {
       builder: (_) => Container(
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Color.fromARGB(255, 242, 242, 242),
+          borderRadius: BorderRadius.circular(16),
+          color: const Color.fromARGB(255, 242, 242, 242),
         ),
         height: 64,
         child: TextFormField(
@@ -44,6 +48,7 @@ class _GlobalLoginFieldState extends State<GlobalLoginField> {
           onChanged: widget.setAttribute,
           enabled: widget.isEnable,
           autofocus: false,
+          obscureText: widget.isObscureText ?? false,
           style: GoogleFonts.nunito(
             textStyle: const TextStyle(
               letterSpacing: 1,
@@ -54,7 +59,8 @@ class _GlobalLoginFieldState extends State<GlobalLoginField> {
           ),
           decoration: InputDecoration(
             prefixIcon: widget.prefixIcon,
-            fillColor: Color.fromARGB(255, 242, 242, 242),
+            suffixIcon: widget.sufixIcon,
+            fillColor: const Color.fromARGB(255, 242, 242, 242),
             filled: true,
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 18.0, vertical: 2.0),

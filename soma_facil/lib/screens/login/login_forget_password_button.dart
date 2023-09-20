@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:soma_facil/global/global_colors.dart';
+import 'package:soma_facil/screens/login/reset_password/reset_password_screend.dart';
 import 'package:soma_facil/stores/login/login_store.dart';
 
 class LoginForgetPasswordButton extends StatefulWidget {
@@ -26,7 +27,12 @@ class _LoginForgetPasswordButtonState extends State<LoginForgetPasswordButton> {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const ResetPasswordScreen(),
+        ),
+      ),
       child: Text(
         'Esqueceu a senha?',
         style: GoogleFonts.quicksand(

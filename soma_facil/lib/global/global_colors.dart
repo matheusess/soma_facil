@@ -13,10 +13,9 @@ class GlobalColors {
   Color purple = const Color(0xFFa70267);
   Color cleanPurple = const Color(0xFF8357FB);
   Color red = const Color(0xFFf10c49);
-  Color orange = const Color(0xFFfb6b41);
-  Color orangeDark = const Color(0xFFF77422);
-  Color lightOrange = const Color(0xFFeb9961);
-  Color lemon = const Color(0xFFFAD05B);
+  Color orange = const Color.fromARGB(255, 248, 142, 13);
+  Color darkOrange = const Color(0xFFF77422);
+  Color yellow = const Color(0xFFFAD05B);
   Color blueGreen = const Color(0xFF339194);
   Color green = const Color(0xFF2CBF6C);
   Color blue = const Color(0xFF1760BF);

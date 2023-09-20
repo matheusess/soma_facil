@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Center(
             child: Text(
               'TESTE',
-              style: TextStyle(color: color.lemon),
+              style: TextStyle(color: color.black),
             ),
           ),
         ],

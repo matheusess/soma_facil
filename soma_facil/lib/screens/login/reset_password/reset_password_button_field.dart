@@ -5,24 +5,25 @@ import 'package:soma_facil/global/global_colors.dart';
 import 'package:soma_facil/global/global_styles.dart';
 import 'package:soma_facil/stores/login/login_store.dart';
 
-import '../../global/global_gradiente_button.dart';
+import '../../../global/global_gradiente_button.dart';
 
-class LoginButtonField extends StatefulWidget {
-  const LoginButtonField({super.key});
+class ResetPasswordButtonField extends StatefulWidget {
+  const ResetPasswordButtonField({super.key});
 
   @override
-  State<LoginButtonField> createState() => _LoginButtonFieldState();
+  State<ResetPasswordButtonField> createState() =>
+      _ResetPasswordButtonFieldState();
 }
 
-class _LoginButtonFieldState extends State<LoginButtonField> {
+class _ResetPasswordButtonFieldState extends State<ResetPasswordButtonField> {
   final GlobalColors color = GlobalColors();
   final GlobalSpaces space = GlobalSpaces();
+
   LoginStore loginStore = LoginStore();
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-
     loginStore = Provider.of<LoginStore>(context);
   }
 
@@ -38,12 +39,12 @@ class _LoginButtonFieldState extends State<LoginButtonField> {
       onPressed: () {
         null;
       },
-      isFluid: false,
+      isFluid: true,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Login',
+            'Resetar senha',
             style: GoogleFonts.quicksand(
               textStyle: const TextStyle(
                 color: Color.fromARGB(255, 255, 255, 255),
@@ -53,11 +54,6 @@ class _LoginButtonFieldState extends State<LoginButtonField> {
             ),
           ),
           space.hSpace2,
-          const Icon(
-            Icons.arrow_forward,
-            color: Colors.white,
-            size: 24,
-          ),
         ],
       ),
     );

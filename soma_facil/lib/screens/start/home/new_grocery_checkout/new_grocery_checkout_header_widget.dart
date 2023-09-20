@@ -23,7 +23,7 @@ class _NewGroceryCheckoutHeaderWidgetState
           'Checkout',
           style: GoogleFonts.poppins(
             textStyle: TextStyle(
-              color: color.orangeDark,
+              color: color.orange,
               fontWeight: FontWeight.w700,
               fontSize: 34,
             ),
