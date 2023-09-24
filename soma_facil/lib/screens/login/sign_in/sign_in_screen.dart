@@ -23,23 +23,33 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
+      /*appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const SignInHeaderWidget(),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
+      ),*/
+      body: SingleChildScrollView(
+        child: Stack(
           children: [
-            const SignInNameField(),
-            spaces.vSpace3,
-            const SignInEmailField(),
-            spaces.vSpace3,
-            const SignInPasswordFiled(),
-            spaces.vSpace3,
-            const SignInConfirmPassword(),
-            spaces.vSpace3,
-            const SignInChipRowWidget()
+            Image.asset('images/bg-login7.png'),
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  spaces.vSpace8,
+                  const SignInHeaderWidget(),
+                  spaces.vSpace6,
+                  const SignInNameField(),
+                  spaces.vSpace3,
+                  const SignInEmailField(),
+                  spaces.vSpace3,
+                  const SignInPasswordFiled(),
+                  spaces.vSpace3,
+                  const SignInConfirmPassword(),
+                  spaces.vSpace5,
+                  const SignInChipRowWidget()
+                ],
+              ),
+            ),
           ],
         ),
       ),

@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:soma_facil/global/global_colors.dart';
 import 'package:soma_facil/stores/new_grocery/new_grocery_store.dart';
 
-import '../../../../global/global_text_field.dart';
+import '../../../../../global/global_text_field.dart';
 
 class NewGroceryItemNameField extends StatefulWidget {
   const NewGroceryItemNameField({super.key});

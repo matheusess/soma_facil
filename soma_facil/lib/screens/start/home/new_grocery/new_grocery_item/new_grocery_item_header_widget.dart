@@ -24,7 +24,7 @@ class _NewGroceryItemHeaderState extends State<NewGroceryItemHeader> {
               'Novo Item',
               style: GoogleFonts.poppins(
                 textStyle: TextStyle(
-                  color: color.orange,
+                  color: color.darkOrange,
                   fontWeight: FontWeight.w700,
                   fontSize: 34,
                 ),
@@ -36,9 +36,9 @@ class _NewGroceryItemHeaderState extends State<NewGroceryItemHeader> {
           'Adicione um',
           style: GoogleFonts.nunito(
             textStyle: TextStyle(
-              color: color.darkGrey,
-              fontWeight: FontWeight.w500,
-              fontSize: 18,
+              color: color.black,
+              fontWeight: FontWeight.w600,
+              fontSize: 16,
             ),
           ),
         ),
@@ -46,9 +46,9 @@ class _NewGroceryItemHeaderState extends State<NewGroceryItemHeader> {
           'novo item',
           style: GoogleFonts.nunito(
             textStyle: TextStyle(
-              color: color.darkGrey,
-              fontWeight: FontWeight.w500,
-              fontSize: 18,
+              color: color.black,
+              fontWeight: FontWeight.w600,
+              fontSize: 16,
             ),
           ),
         ),

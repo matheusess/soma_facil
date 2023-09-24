@@ -22,7 +22,7 @@ class _NewGroceryHeaderWidgetState extends State<NewGroceryHeaderWidget> {
           'Compra',
           style: GoogleFonts.poppins(
             textStyle: TextStyle(
-              color: color.green,
+              color: color.darkOrange,
               fontWeight: FontWeight.w700,
               fontSize: 34,
             ),
@@ -32,9 +32,9 @@ class _NewGroceryHeaderWidgetState extends State<NewGroceryHeaderWidget> {
           'Bora fazer',
           style: GoogleFonts.nunito(
             textStyle: TextStyle(
-              color: color.darkGrey,
-              fontWeight: FontWeight.w500,
-              fontSize: 18,
+              color: color.black,
+              fontWeight: FontWeight.w600,
+              fontSize: 16,
             ),
           ),
         ),
@@ -42,9 +42,9 @@ class _NewGroceryHeaderWidgetState extends State<NewGroceryHeaderWidget> {
           'uma nova compra?',
           style: GoogleFonts.nunito(
             textStyle: TextStyle(
-              color: color.darkGrey,
-              fontWeight: FontWeight.w500,
-              fontSize: 18,
+              color: color.black,
+              fontWeight: FontWeight.w600,
+              fontSize: 16,
             ),
           ),
         ),

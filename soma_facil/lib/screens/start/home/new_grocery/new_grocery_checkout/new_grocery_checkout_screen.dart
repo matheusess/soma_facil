@@ -3,9 +3,9 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 import 'package:soma_facil/global/global_colors.dart';
 import 'package:soma_facil/global/global_styles.dart';
-import 'package:soma_facil/screens/start/home/new_grocery_checkout/new_grocery_checkout_bottom_buttons.dart';
-import 'package:soma_facil/screens/start/home/new_grocery_checkout/new_grocery_checkout_header_widget.dart';
-import 'package:soma_facil/screens/start/home/new_grocery_checkout/new_grocery_checkout_item_list_widget.dart';
+import 'package:soma_facil/screens/start/home/new_grocery/new_grocery_checkout/new_grocery_checkout_bottom_buttons.dart';
+import 'package:soma_facil/screens/start/home/new_grocery/new_grocery_checkout/new_grocery_checkout_header_widget.dart';
+import 'package:soma_facil/screens/start/home/new_grocery/new_grocery_checkout/new_grocery_checkout_item_list_widget.dart';
 import 'package:soma_facil/stores/new_grocery/new_grocery_store.dart';
 
 import 'new_grocery_checkout_sub_header_widget.dart';

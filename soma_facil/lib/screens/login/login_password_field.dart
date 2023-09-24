@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
 import '../../global/global_colors.dart';
@@ -24,16 +25,28 @@ class _LoginPasswordFieldState extends State<LoginPasswordField> {
 
   @override
   Widget build(BuildContext context) {
-    return GlobalLoginField(
-      isEnable: true,
-      prefixIcon: Icon(
-        Icons.password,
-        color: color.black,
-        size: 20,
+    return Observer(
+      builder: (_) => GlobalLoginField(
+        isEnable: true,
+        prefixIcon: Icon(
+          Icons.password,
+          color: color.black,
+          size: 20,
+        ),
+        sufixIcon: IconButton(
+          onPressed: () => loginStore.setPasswordObscure(),
+          icon: Icon(
+            loginStore.isPasswordObscure
+                ? Icons.lock
+                : Icons.lock_open_outlined,
+          ),
+        ),
+        isObscureText: loginStore.isPasswordObscure,
+        placeHolder: 'Digite sua senha',
+        keyboardType: TextInputType.emailAddress,
+        setAttribute: loginStore.setPassword,
+        initialValue: loginStore.password,
       ),
-      placeHolder: 'Senha',
-      keyboardType: TextInputType.emailAddress,
-      setAttribute: (p0) => print('teste'),
     );
   }
 }

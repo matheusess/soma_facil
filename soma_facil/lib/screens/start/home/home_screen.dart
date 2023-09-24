@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:soma_facil/screens/start/home/home_header/grocery_list/groceries_list_widget.dart';
+import 'package:soma_facil/screens/start/home/home_header/home_header_widget.dart';
 
 import '../../../global/global_colors.dart';
 import 'new_grocery/new_grocery_screen.dart';
@@ -16,23 +18,19 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Center(
-            child: Text(
-              'TESTE',
-              style: TextStyle(color: color.black),
-            ),
-          ),
-        ],
+      appBar: AppBar(
+        title: const HomeHeaderWidget(),
+        automaticallyImplyLeading: false,
+        toolbarHeight: 148,
       ),
+      body: const GroceriesListWidget(),
       backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const NewGroceryScreen()),
         ),
-        backgroundColor: color.blueGreen,
+        backgroundColor: color.darkOrange,
         child: const Icon(Icons.add),
       ),
     );

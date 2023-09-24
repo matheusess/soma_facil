@@ -65,6 +65,7 @@ class _NewGroceryCheckoutBottomButtonsState
           ),
           FloatingActionButton.extended(
             heroTag: "addItemButton",
+            // ignore: avoid_print
             onPressed: () => print('teste'),
             backgroundColor: newGroceryStore.isNewGroceyValid
                 ? color.green

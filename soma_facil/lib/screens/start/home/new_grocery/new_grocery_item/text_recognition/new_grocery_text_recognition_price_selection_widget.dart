@@ -2,22 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../global/global_colors.dart';
-import '../../../../../global/global_styles.dart';
-import '../../../../../stores/new_grocery/new_grocery_store.dart';
+import '../../../../../../global/global_colors.dart';
+import '../../../../../../global/global_styles.dart';
+import '../../../../../../stores/new_grocery/new_grocery_store.dart';
 
-class NewGroceryTextRecognitionNameSelectionWidget extends StatefulWidget {
-  const NewGroceryTextRecognitionNameSelectionWidget({super.key});
+class NewGroceryTextRecognitionPriceSelectionWidget extends StatefulWidget {
+  const NewGroceryTextRecognitionPriceSelectionWidget({super.key});
 
   @override
-  State<NewGroceryTextRecognitionNameSelectionWidget> createState() =>
-      _NewGroceryTextRecognitionNameSelectionWidgetState();
+  State<NewGroceryTextRecognitionPriceSelectionWidget> createState() =>
+      _NewGroceryTextRecognitionPriceSelectionWidgetState();
 }
 
-class _NewGroceryTextRecognitionNameSelectionWidgetState
-    extends State<NewGroceryTextRecognitionNameSelectionWidget> {
+class _NewGroceryTextRecognitionPriceSelectionWidgetState
+    extends State<NewGroceryTextRecognitionPriceSelectionWidget> {
   NewGroceryStore newGroceryStore = NewGroceryStore();
-
   final GlobalColors color = GlobalColors();
   final GlobalSpaces spaces = GlobalSpaces();
   final GlobalTextStyle style = GlobalTextStyle();
@@ -34,7 +33,7 @@ class _NewGroceryTextRecognitionNameSelectionWidgetState
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Nome do produto',
+          'Preço do produto',
           style: style.textHeader,
         ),
         spaces.vSpace,
@@ -46,9 +45,9 @@ class _NewGroceryTextRecognitionNameSelectionWidgetState
               borderRadius: BorderRadius.circular(50),
             ),
             child: Text(
-              newGroceryStore.itemName.isEmpty
-                  ? 'Selecione o nome'
-                  : newGroceryStore.itemName,
+              newGroceryStore.itemPriceStr.isEmpty
+                  ? 'Selecione o preço'
+                  : newGroceryStore.itemPriceStr,
               style: style.cardValueHighLight,
             ),
           ),
@@ -68,11 +67,9 @@ class _NewGroceryTextRecognitionNameSelectionWidgetState
                     style: style.cardValueHighLight,
                   ),
                 ),
-                onTap: () => {
-                  newGroceryStore.setItemNameFromImage(
-                    newGroceryStore.reconizedNameList[index].toString(),
-                  ),
-                },
+                onTap: () => newGroceryStore.parseItemPriceFromImage(
+                  newGroceryStore.reconizedNameList[index].toString(),
+                ),
               );
             },
           ),

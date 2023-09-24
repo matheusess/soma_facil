@@ -65,6 +65,13 @@ mixin _$LoginStore on LoginStoreBase, Store {
           Computed<bool>(() => super.hasMinimumCharacter,
               name: 'LoginStoreBase.hasMinimumCharacter'))
       .value;
+  Computed<bool>? _$isLoginValidComputed;
+
+  @override
+  bool get isLoginValid =>
+      (_$isLoginValidComputed ??= Computed<bool>(() => super.isLoginValid,
+              name: 'LoginStoreBase.isLoginValid'))
+          .value;
   Computed<bool>? _$isNewUserValidComputed;
 
   @override
@@ -289,6 +296,14 @@ mixin _$LoginStore on LoginStoreBase, Store {
     return _$logoutAsyncAction.run(() => super.logout());
   }
 
+  late final _$clearUserDataAsyncAction =
+      AsyncAction('LoginStoreBase.clearUserData', context: context);
+
+  @override
+  Future<void> clearUserData() {
+    return _$clearUserDataAsyncAction.run(() => super.clearUserData());
+  }
+
   late final _$LoginStoreBaseActionController =
       ActionController(name: 'LoginStoreBase', context: context);
 
@@ -380,6 +395,7 @@ hasOneUpperCase: ${hasOneUpperCase},
 hasSpecialCharacter: ${hasSpecialCharacter},
 hasNumberCharacter: ${hasNumberCharacter},
 hasMinimumCharacter: ${hasMinimumCharacter},
+isLoginValid: ${isLoginValid},
 isNewUserValid: ${isNewUserValid}
     ''';
   }

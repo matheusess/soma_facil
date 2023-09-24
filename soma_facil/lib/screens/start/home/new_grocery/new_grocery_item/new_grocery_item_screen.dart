@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:soma_facil/global/global_colors.dart';
 import 'package:soma_facil/global/global_styles.dart';
-import 'package:soma_facil/screens/start/home/new_grocery_item/images_widget/new_grocery_image_field.dart';
-import 'package:soma_facil/screens/start/home/new_grocery_item/new_grocery_item_header_widget.dart';
+import 'package:soma_facil/screens/start/home/new_grocery/new_grocery_item/images_widget/new_grocery_image_field.dart';
+import 'package:soma_facil/screens/start/home/new_grocery/new_grocery_item/new_grocery_item_header_widget.dart';
 import 'package:soma_facil/stores/new_grocery/new_grocery_store.dart';
 
 import 'new_grocery_item_bottom_buttons.dart';
@@ -38,7 +38,7 @@ class _NewGroceryItemScreenState extends State<NewGroceryItemScreen> {
     return Scaffold(
       backgroundColor: color.white,
       appBar: AppBar(
-        toolbarHeight: 100,
+        toolbarHeight: 78,
         automaticallyImplyLeading: false,
         title: const NewGroceryItemHeader(),
       ),
@@ -68,7 +68,7 @@ class _NewGroceryItemScreenState extends State<NewGroceryItemScreen> {
                     'Dados do produto',
                     style: GoogleFonts.nunito(
                       textStyle: TextStyle(
-                        color: color.darkGrey,
+                        color: color.black,
                         fontWeight: FontWeight.w700,
                         fontSize: 14,
                       ),
@@ -97,7 +97,7 @@ class _NewGroceryItemScreenState extends State<NewGroceryItemScreen> {
           ),
         ),
       ),
-      bottomSheet: const NewGroceryItemBottomButtons(),
+      bottomNavigationBar: const NewGroceryItemBottomButtons(),
     );
   }
 }

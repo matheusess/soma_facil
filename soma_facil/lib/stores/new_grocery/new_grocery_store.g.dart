@@ -359,6 +359,15 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
     return _$recognizedTextAsyncAction.run(() => super.recognizedText());
   }
 
+  late final _$createNewGroceryAsyncAction =
+      AsyncAction('NewGroceryStoreBase.createNewGrocery', context: context);
+
+  @override
+  Future<void> createNewGrocery({required dynamic uId}) {
+    return _$createNewGroceryAsyncAction
+        .run(() => super.createNewGrocery(uId: uId));
+  }
+
   late final _$NewGroceryStoreBaseActionController =
       ActionController(name: 'NewGroceryStoreBase', context: context);
 

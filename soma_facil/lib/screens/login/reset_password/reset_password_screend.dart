@@ -25,6 +25,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
     loginStore = Provider.of<LoginStore>(context);
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,

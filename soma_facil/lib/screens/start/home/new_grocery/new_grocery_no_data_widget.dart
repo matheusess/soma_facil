@@ -36,8 +36,8 @@ class _NewGroceryNoDataWidgetState extends State<NewGroceryNoDataWidget> {
               'Ops!',
               style: GoogleFonts.nunito(
                 textStyle: TextStyle(
-                  color: color.darkGrey,
-                  fontWeight: FontWeight.w700,
+                  color: color.black,
+                  fontWeight: FontWeight.w600,
                   fontSize: 14,
                 ),
               ),
@@ -46,7 +46,7 @@ class _NewGroceryNoDataWidgetState extends State<NewGroceryNoDataWidget> {
               'Parece que a lista está vazia.',
               style: GoogleFonts.nunito(
                 textStyle: TextStyle(
-                  color: color.darkGrey,
+                  color: color.black,
                   fontWeight: FontWeight.w600,
                   fontSize: 14,
                 ),

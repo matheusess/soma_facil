@@ -2,10 +2,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:soma_facil/splash_screen.dart';
 
 import 'firebase_options.dart';
 import 'global/global_colors.dart';
-import 'screens/login/login_screen.dart';
+import 'stores/grocery/grocery_store.dart';
 import 'stores/login/login_store.dart';
 import 'stores/new_grocery/new_grocery_store.dart';
 
@@ -15,7 +16,8 @@ Future<void> main() async {
     name: 'soma_facil',
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  var initialRoute = 'login';
+
+  var initialRoute = 'splash';
 
   runApp(MyApp(
     initialRoute: initialRoute,
@@ -33,12 +35,12 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<LoginStore>(create: (_) => LoginStore()),
+        Provider<GroceryStore>(create: (_) => GroceryStore()),
         Provider<NewGroceryStore>(create: (_) => NewGroceryStore()),
       ],
       child: MaterialApp(
         localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,
-          //DefaultCupertinoLocalizations.delegate, //remove with got error
           GlobalCupertinoLocalizations.delegate,
           DefaultWidgetsLocalizations.delegate,
         ],
@@ -48,6 +50,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           useMaterial3: true,
           primaryColor: color.orange,
+          primarySwatch: Colors.purple,
           colorScheme: ColorScheme.fromSwatch().copyWith(
             secondary: color.orange,
           ),
@@ -58,7 +61,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: initialRoute,
         routes: {
-          'login': (context) => const LoginScreen(),
+          'splash': (context) => const SplashScreen(),
         },
       ),
     );

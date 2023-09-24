@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:mobx/mobx.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -83,6 +84,9 @@ abstract class LoginStoreBase with Store {
   bool get hasMinimumCharacter => password.length > 8;
 
   @computed
+  bool get isLoginValid => password.length > 4 && isEmailValid;
+
+  @computed
   bool get isNewUserValid =>
       isNameValid &&
       isEmailValid &&
@@ -108,7 +112,9 @@ abstract class LoginStoreBase with Store {
 
       firebaseUser = (await _auth.signInWithCredential(credential)).user!;
     } on FirebaseAuthException catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
       isLoading = false;
       isGoogleLoading = false;
     }
@@ -119,7 +125,9 @@ abstract class LoginStoreBase with Store {
     GoogleSignInAccount? googleUser = _googleSignIn.currentUser;
     await _googleSignIn.signInSilently();
     googleUser = (await _googleSignIn.signIn())!;
-    print(googleUser);
+    if (kDebugMode) {
+      print(googleUser);
+    }
     return googleUser;
   }
 
@@ -174,7 +182,9 @@ abstract class LoginStoreBase with Store {
       getSuccess = true;
     }).catchError((err) {
       getSuccess = true;
-      print(err.toString());
+      if (kDebugMode) {
+        print(err.toString());
+      }
     });
     isLoading = false;
   }
@@ -184,6 +194,15 @@ abstract class LoginStoreBase with Store {
     isLoading = false;
     isGoogleLoading = false;
     isLogged = false;
+    await _auth.signOut();
+  }
+
+  @action
+  Future<void> clearUserData() async {
+    name = '';
+    email = '';
+    password = '';
+    confirmPassword = '';
     await _auth.signOut();
   }
 }

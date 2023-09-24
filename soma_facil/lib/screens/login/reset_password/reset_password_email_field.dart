@@ -34,6 +34,7 @@ class _ResetPasswordEmailFieldState extends State<ResetPasswordEmailField> {
       ),
       placeHolder: 'seu@email.com',
       keyboardType: TextInputType.emailAddress,
+      // ignore: avoid_print
       setAttribute: (p0) => print('teste'),
     );
   }

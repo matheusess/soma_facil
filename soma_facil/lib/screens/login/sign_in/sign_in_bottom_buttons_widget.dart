@@ -65,6 +65,7 @@ class _SignInBottomButtonsWidgetState extends State<SignInBottomButtonsWidget> {
           Observer(
             builder: (_) => FloatingActionButton.extended(
               heroTag: "createNewUser",
+              // ignore: avoid_print
               onPressed: () => print('teste'),
               backgroundColor: loginStore.isNewUserValid
                   ? color.green

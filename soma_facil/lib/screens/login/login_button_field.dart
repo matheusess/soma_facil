@@ -30,14 +30,17 @@ class _LoginButtonFieldState extends State<LoginButtonField> {
   Widget build(BuildContext context) {
     return GlobalGradientButton(
       gradient: LinearGradient(
-        colors: <Color>[
-          color.darkOrange,
-          color.darkOrange,
-        ],
+        colors: loginStore.isLoginValid
+            ? <Color>[
+                color.darkOrange,
+                color.darkOrange,
+              ]
+            : <Color>[
+                color.lightGrey,
+                color.lightGrey,
+              ],
       ),
-      onPressed: () {
-        null;
-      },
+      onPressed: () => loginStore.isLoginValid ? null : null,
       isFluid: false,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

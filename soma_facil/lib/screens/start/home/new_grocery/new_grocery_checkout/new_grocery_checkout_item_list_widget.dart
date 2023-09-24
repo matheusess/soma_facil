@@ -127,6 +127,7 @@ class _NewGroceryCheckoutItemListWidgetState
                   Expanded(
                     flex: 6,
                     child: GestureDetector(
+                      // ignore: avoid_print
                       onTap: () => print('CHECKOU'),
                       child: Container(
                         decoration: const BoxDecoration(

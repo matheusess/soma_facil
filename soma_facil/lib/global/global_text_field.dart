@@ -34,72 +34,67 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
   @override
   Widget build(BuildContext context) {
     return Observer(
-      builder: (_) => Container(
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: const Color.fromARGB(255, 255, 255, 255),
+      builder: (_) => TextFormField(
+        cursorColor: color.darkOrange,
+        initialValue: widget.initialValue,
+        onChanged: widget.setAttribute,
+        controller: widget.controller,
+        enabled: widget.isEnable,
+        autofocus: false,
+        style: GoogleFonts.nunito(
+          textStyle: const TextStyle(
+            letterSpacing: 1,
+            color: Colors.black,
+            fontWeight: FontWeight.w700,
+            fontSize: 14,
+          ),
         ),
-        height: 60,
-        child: TextFormField(
-          initialValue: widget.initialValue,
-          onChanged: widget.setAttribute,
-          controller: widget.controller,
-          enabled: widget.isEnable,
-          autofocus: false,
-          style: GoogleFonts.nunito(
-            textStyle: const TextStyle(
+        decoration: InputDecoration(
+          fillColor: const Color.fromARGB(255, 240, 240, 240),
+          filled: true,
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: 18,
+            vertical: 22,
+          ),
+          hintText: widget.placeHolder,
+          hintStyle: GoogleFonts.nunito(
+            textStyle: TextStyle(
               letterSpacing: 1,
-              color: Colors.black,
-              fontWeight: FontWeight.w600,
+              color: color.grey,
+              fontWeight: FontWeight.w400,
               fontSize: 14,
             ),
           ),
-          decoration: InputDecoration(
-            prefixIcon: widget.prefixIcon,
-            fillColor: const Color.fromARGB(255, 255, 255, 255),
-            filled: true,
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 18.0, vertical: 2.0),
-            hintText: widget.placeHolder,
-            hintStyle: GoogleFonts.nunito(
-              textStyle: TextStyle(
-                letterSpacing: 1,
-                color: color.grey,
-                fontWeight: FontWeight.w400,
-                fontSize: 14,
-              ),
+          disabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Color.fromARGB(255, 242, 242, 242),
+              width: 1,
             ),
-            disabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Color.fromARGB(255, 255, 255, 255),
-                width: 1,
-              ),
-              borderRadius: BorderRadius.all(
-                Radius.circular(90.0),
-              ),
+            borderRadius: BorderRadius.all(
+              Radius.circular(16),
             ),
-            /* enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Color.fromARGB(255, 255, 255, 255),
-                width: 1,
-              ),
-              borderRadius: BorderRadius.all(
-                Radius.circular(90.0),
-              ),
-            ),
-            focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Color.fromARGB(255, 255, 255, 255),
-                width: 1,
-              ),
-              borderRadius: BorderRadius.all(
-                Radius.circular(90.0),
-              ),
-            ),*/
           ),
-          keyboardType: widget.keyboardType,
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Color.fromARGB(255, 242, 242, 242),
+              width: 1,
+            ),
+            borderRadius: BorderRadius.all(
+              Radius.circular(16),
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: color.orange,
+              width: 1,
+            ),
+            borderRadius: const BorderRadius.all(
+              Radius.circular(16),
+            ),
+          ),
+          focusColor: color.white,
         ),
+        keyboardType: widget.keyboardType,
       ),
     );
   }

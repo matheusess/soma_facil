@@ -1,6 +1,7 @@
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:soma_facil/global/global_colors.dart';
 import 'package:soma_facil/global/global_styles.dart';
@@ -31,7 +32,16 @@ class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Text(
+          'Lista de itens',
+          style: GoogleFonts.nunito(
+            color: color.black,
+            fontSize: 14,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
         Observer(
           builder: (_) => ListView.builder(
             itemCount: newGroceryStore.newGroceryList.length,
@@ -44,11 +54,15 @@ class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
                 padding: const EdgeInsets.only(left: 16),
                 margin: EdgeInsets.only(
                   bottom: newGroceryStore.newGroceryList.length == (index + 1)
-                      ? 60
+                      ? 0
                       : 22,
+                  top: index == 0 ? 18 : 0,
                 ),
                 decoration: BoxDecoration(
-                  color: color.cardBackground,
+                  border: Border.all(
+                    color: const Color.fromARGB(255, 243, 243, 243),
+                  ),
+                  color: const Color.fromARGB(255, 240, 240, 240),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Column(
@@ -60,7 +74,11 @@ class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
                         Text(
                           newGroceryStore.newGroceryList[index].productName
                               .toUpperCase(),
-                          style: style.cardHeader,
+                          style: GoogleFonts.nunito(
+                            color: color.black,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w800,
+                          ),
                         ),
                       ],
                     ),
@@ -103,7 +121,11 @@ class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
     var priceParsed = UtilBrasilFields.obterReal(price);
     return Text(
       priceParsed,
-      style: style.cardValue,
+      style: GoogleFonts.nunito(
+        color: color.black,
+        fontSize: 14,
+        fontWeight: FontWeight.w700,
+      ),
     );
   }
 
@@ -111,7 +133,11 @@ class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
     var priceParsed = UtilBrasilFields.obterReal(price);
     return Text(
       priceParsed,
-      style: style.cardValue,
+      style: GoogleFonts.nunito(
+        color: color.black,
+        fontSize: 14,
+        fontWeight: FontWeight.w700,
+      ),
     );
   }
 
@@ -121,7 +147,11 @@ class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
       children: [
         Text(
           'Preço',
-          style: style.cardSubHeader,
+          style: GoogleFonts.nunito(
+            color: color.black,
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+          ),
         ),
         _priceTransform(
           price: newGroceryStore.newGroceryList[index].productPrice,
@@ -135,10 +165,19 @@ class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
       children: [
         Text(
           'Quantidade',
-          style: style.cardSubHeader,
+          style: GoogleFonts.nunito(
+            color: color.black,
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+          ),
         ),
         Text(
           newGroceryStore.newGroceryList[index].productQuantity.toString(),
+          style: GoogleFonts.nunito(
+            color: color.black,
+            fontSize: 14,
+            fontWeight: FontWeight.w700,
+          ),
         ),
       ],
     );
@@ -150,7 +189,11 @@ class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
       children: [
         Text(
           'Total',
-          style: style.cardSubHeader,
+          style: GoogleFonts.nunito(
+            color: color.black,
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+          ),
         ),
         _totalTransform(
           price: newGroceryStore.newGroceryList[index].productTotalPrice,

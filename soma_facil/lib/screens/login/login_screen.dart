@@ -3,7 +3,6 @@ import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
 import 'package:soma_facil/global/global_colors.dart';
 import 'package:soma_facil/global/global_styles.dart';
-import 'package:soma_facil/screens/login/login_apple_button.dart';
 import 'package:soma_facil/screens/login/login_email_field.dart';
 
 import '../../stores/login/login_store.dart';
@@ -96,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       LoginGoogleButton(),
-                      LoginAppleButton(),
+                      //LoginAppleButton(),
                     ],
                   ),
                 ],

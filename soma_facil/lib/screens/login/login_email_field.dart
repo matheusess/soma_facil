@@ -27,13 +27,14 @@ class _LoginEmailFieldState extends State<LoginEmailField> {
     return GlobalLoginField(
       isEnable: true,
       prefixIcon: Icon(
-        Icons.person,
+        Icons.email,
         color: color.black,
         size: 20,
       ),
       placeHolder: 'seu@email.com',
       keyboardType: TextInputType.emailAddress,
-      setAttribute: (p0) => print('teste'),
+      setAttribute: loginStore.setEmail,
+      initialValue: loginStore.email,
     );
   }
 }

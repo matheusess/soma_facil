@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:soma_facil/stores/new_grocery/new_grocery_store.dart';
 
-import '../../../../global/global_currency_field.dart';
+import '../../../../../global/global_currency_field.dart';
 
 class NewGroceryItemPriceField extends StatefulWidget {
   const NewGroceryItemPriceField({super.key});

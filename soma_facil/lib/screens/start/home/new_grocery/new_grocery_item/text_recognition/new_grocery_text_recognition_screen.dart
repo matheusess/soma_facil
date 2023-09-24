@@ -3,9 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../global/global_colors.dart';
-import '../../../../../global/global_styles.dart';
-import '../../../../../stores/new_grocery/new_grocery_store.dart';
+import '../../../../../../global/global_colors.dart';
+import '../../../../../../global/global_styles.dart';
+import '../../../../../../stores/new_grocery/new_grocery_store.dart';
 import 'new_grocery_text_recognition_name_selection_widget.dart';
 import 'new_grocery_text_recognition_price_selection_widget.dart';
 import 'new_grocery_text_header_widget.dart';

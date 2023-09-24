@@ -64,6 +64,7 @@ class _LoginAppleButtonState extends State<LoginAppleButton> {
                       'images/apple-l.svg',
                       height: 22.0,
                       width: 100.0,
+                      // ignore: deprecated_member_use
                       color: loginStore.isLoading ? color.grey : color.black,
                     ),
                   ],

@@ -1,7 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter/material.dart';
-import 'package:mobx/mobx.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:soma_facil/screens/login/login_screen.dart';
 import 'package:soma_facil/stores/login/login_store.dart';
@@ -17,12 +15,6 @@ class MenuScreen extends StatefulWidget {
 class _MenuScreenState extends State<MenuScreen> {
   NewGroceryStore newGroceryStore = NewGroceryStore();
   LoginStore loginStore = LoginStore();
-  User? user = FirebaseAuth.instance.currentUser;
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   void didChangeDependencies() {
@@ -30,15 +22,6 @@ class _MenuScreenState extends State<MenuScreen> {
 
     newGroceryStore = Provider.of<NewGroceryStore>(context);
     loginStore = Provider.of<LoginStore>(context);
-
-    autorun((_) {
-      if (!loginStore.isLogged) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const LoginScreen()),
-        );
-      }
-    });
   }
 
   @override
@@ -46,7 +29,15 @@ class _MenuScreenState extends State<MenuScreen> {
     return Scaffold(
       body: Center(
         child: TextButton(
-          onPressed: () => loginStore.logout(),
+          onPressed: () => {
+            loginStore.logout(),
+            Navigator.of(context, rootNavigator: true).pushReplacement(
+              PageTransition(
+                type: PageTransitionType.bottomToTop,
+                child: const LoginScreen(),
+              ),
+            ),
+          },
           child: const Text('Logout'),
         ),
       ),

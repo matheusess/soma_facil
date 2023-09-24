@@ -26,7 +26,7 @@ class _SignInChipRowWidgetState extends State<SignInChipRowWidget> {
     return Wrap(
       direction: Axis.horizontal,
       alignment: WrapAlignment.start,
-      spacing: 6.0,
+      spacing: 10.0,
       runSpacing: 6.0,
       children: [
         Observer(

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:brasil_fields/brasil_fields.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
@@ -206,6 +207,37 @@ abstract class NewGroceryStoreBase with Store {
       reconizedNameList.add(texts.text.characters);
       reconizedPriceList.add(texts.text.characters);
     }
+    isLoading = false;
+  }
+
+  @action
+  Future<void> createNewGrocery({
+    required uId,
+  }) async {
+    isLoading = true;
+
+    var items = [];
+
+    for (var e in newGroceryList) {
+      var tempMap = {};
+      tempMap['name'] = e.productName;
+      tempMap['price'] = e.productPrice;
+      tempMap['quantity'] = e.productQuantity;
+      tempMap['total_price'] = e.productTotalPrice;
+      items.add(tempMap);
+    }
+
+    Map<String, dynamic> newGroceryData = {
+      "name": groceryName,
+      "total_price": groceryPriceTotalizer,
+      "total_items": newGroceryList.length,
+      "items": items,
+      "created_at": DateTime.now(),
+    };
+    await FirebaseFirestore.instance
+        .collection('users/$uId/groceries')
+        .add(newGroceryData)
+        .then((value) => print(value));
     isLoading = false;
   }
 

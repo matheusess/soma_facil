@@ -36,7 +36,7 @@ class _NewGroceryTotalPriceItemWidgetState
           style: GoogleFonts.nunito(
             textStyle: TextStyle(
               color: color.black,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w600,
               fontSize: 14,
               height: 1.5,
             ),
@@ -50,7 +50,7 @@ class _NewGroceryTotalPriceItemWidgetState
               textStyle: TextStyle(
                 color: color.black,
                 fontWeight: FontWeight.w700,
-                fontSize: 48,
+                fontSize: 42,
                 height: 1,
               ),
             ),

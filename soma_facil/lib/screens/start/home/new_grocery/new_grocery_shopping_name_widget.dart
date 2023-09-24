@@ -28,15 +28,16 @@ class _NewGroceryShoppingNameWidgetState
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 120,
+      height: 114,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: const Color.fromARGB(255, 239, 239, 239)),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
-            spreadRadius: 5,
-            blurRadius: 9,
+            color: Colors.grey.withOpacity(0.1),
+            spreadRadius: 2,
+            blurRadius: 4,
           ),
         ],
       ),
@@ -51,16 +52,16 @@ class _NewGroceryShoppingNameWidgetState
             Row(
               children: [
                 Icon(
-                  Icons.add_location_alt_outlined,
-                  color: color.blue,
+                  Icons.add_location_alt,
+                  color: color.blueGreen,
                 ),
                 const SizedBox(width: 8),
                 Text(
                   'Local da compra',
                   style: GoogleFonts.nunito(
                     textStyle: TextStyle(
-                      color: color.darkGrey,
-                      fontWeight: FontWeight.w700,
+                      color: color.black,
+                      fontWeight: FontWeight.w600,
                       fontSize: 14,
                     ),
                   ),
@@ -73,8 +74,8 @@ class _NewGroceryShoppingNameWidgetState
               autofocus: false,
               style: GoogleFonts.nunito(
                 textStyle: TextStyle(
-                  color: color.darkGrey,
-                  fontWeight: FontWeight.w700,
+                  color: color.black,
+                  fontWeight: FontWeight.w800,
                   fontSize: 18,
                 ),
               ),
@@ -84,7 +85,7 @@ class _NewGroceryShoppingNameWidgetState
                 hintText: 'Digite o nome do local ...',
                 hintStyle: GoogleFonts.nunito(
                   textStyle: TextStyle(
-                    color: color.grey,
+                    color: color.darkGrey,
                     fontWeight: FontWeight.w400,
                     fontSize: 18,
                   ),

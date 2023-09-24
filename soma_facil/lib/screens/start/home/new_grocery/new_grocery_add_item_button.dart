@@ -1,8 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../global/global_colors.dart';
-import '../new_grocery_item/new_grocery_item_screen.dart';
+import '../../../../global/global_styles.dart';
+import 'new_grocery_checkout/new_grocery_checkout_screen.dart';
+import 'new_grocery_item/new_grocery_item_screen.dart';
 
 class NewGroceryAdditemButton extends StatefulWidget {
   const NewGroceryAdditemButton({super.key});
@@ -14,6 +17,9 @@ class NewGroceryAdditemButton extends StatefulWidget {
 
 class _NewGroceryAdditemButtonState extends State<NewGroceryAdditemButton> {
   GlobalColors color = GlobalColors();
+  User? user = FirebaseAuth.instance.currentUser;
+
+  final GlobalSpaces spaces = GlobalSpaces();
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +41,7 @@ class _NewGroceryAdditemButtonState extends State<NewGroceryAdditemButton> {
             color: Colors.white,
           ),
           label: Text(
-            'Adicionar item',
+            'Adicionar itemmm',
             style: GoogleFonts.nunito(
               textStyle: const TextStyle(
                 color: Colors.white,
@@ -48,4 +54,6 @@ class _NewGroceryAdditemButtonState extends State<NewGroceryAdditemButton> {
       ],
     );
   }
+
+  
 }
