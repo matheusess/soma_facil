@@ -146,7 +146,8 @@ class _NewGroceryImageSelectSourceWidgetState
       CroppedFile? cropped = (await ImageCropper().cropImage(
         sourcePath: image.path,
         aspectRatio: const CropAspectRatio(ratioX: 10, ratioY: 4),
-        compressQuality: 40,
+        compressQuality: 20,
+        cropStyle: CropStyle.rectangle,
         compressFormat: ImageCompressFormat.jpg,
       ));
 

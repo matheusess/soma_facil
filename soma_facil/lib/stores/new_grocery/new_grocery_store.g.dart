@@ -125,6 +125,38 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
     });
   }
 
+  late final _$successAtom =
+      Atom(name: 'NewGroceryStoreBase.success', context: context);
+
+  @override
+  bool get success {
+    _$successAtom.reportRead();
+    return super.success;
+  }
+
+  @override
+  set success(bool value) {
+    _$successAtom.reportWrite(value, super.success, () {
+      super.success = value;
+    });
+  }
+
+  late final _$errorAtom =
+      Atom(name: 'NewGroceryStoreBase.error', context: context);
+
+  @override
+  bool get error {
+    _$errorAtom.reportRead();
+    return super.error;
+  }
+
+  @override
+  set error(bool value) {
+    _$errorAtom.reportWrite(value, super.error, () {
+      super.error = value;
+    });
+  }
+
   late final _$removeCharacterAtom =
       Atom(name: 'NewGroceryStoreBase.removeCharacter', context: context);
 
@@ -368,6 +400,18 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
         .run(() => super.createNewGrocery(uId: uId));
   }
 
+  late final _$_uploadProductImageAsyncAction =
+      AsyncAction('NewGroceryStoreBase._uploadProductImage', context: context);
+
+  @override
+  Future<String> _uploadProductImage(
+      {required File? productImage,
+      required String uId,
+      required String pName}) {
+    return _$_uploadProductImageAsyncAction.run(() => super._uploadProductImage(
+        productImage: productImage, uId: uId, pName: pName));
+  }
+
   late final _$NewGroceryStoreBaseActionController =
       ActionController(name: 'NewGroceryStoreBase', context: context);
 
@@ -577,6 +621,8 @@ itemPriceController: ${itemPriceController},
 isLoading: ${isLoading},
 isPriceInvalid: ${isPriceInvalid},
 routedImageScreen: ${routedImageScreen},
+success: ${success},
+error: ${error},
 removeCharacter: ${removeCharacter},
 removeDots: ${removeDots},
 groceryName: ${groceryName},

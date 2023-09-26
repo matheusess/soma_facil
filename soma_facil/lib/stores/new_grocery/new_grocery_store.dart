@@ -1,11 +1,12 @@
 import 'dart:io';
 
+import 'package:mobx/mobx.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
-import 'package:mobx/mobx.dart';
 
 import '../../model/new_item/new_item_model.dart';
 
@@ -14,6 +15,8 @@ part 'new_grocery_store.g.dart';
 class NewGroceryStore = NewGroceryStoreBase with _$NewGroceryStore;
 
 abstract class NewGroceryStoreBase with Store {
+  late Reference reference;
+  late UploadTask uploadTask;
   /*
 
   @Variables
@@ -27,7 +30,11 @@ abstract class NewGroceryStoreBase with Store {
   TextEditingController itemPriceController = TextEditingController();
 
   @observable
-  bool isLoading = false, isPriceInvalid = false, routedImageScreen = false;
+  bool isLoading = false,
+      isPriceInvalid = false,
+      routedImageScreen = false,
+      success = true,
+      error = false;
 
   @observable
   String removeCharacter = '', removeDots = '';
@@ -220,6 +227,13 @@ abstract class NewGroceryStoreBase with Store {
 
     for (var e in newGroceryList) {
       var tempMap = {};
+      e.productImage == null
+          ? tempMap['image'] = ''
+          : tempMap['image'] = await _uploadProductImage(
+              productImage: e.productImage,
+              uId: uId,
+              pName: e.productName,
+            );
       tempMap['name'] = e.productName;
       tempMap['price'] = e.productPrice;
       tempMap['quantity'] = e.productQuantity;
@@ -237,8 +251,42 @@ abstract class NewGroceryStoreBase with Store {
     await FirebaseFirestore.instance
         .collection('users/$uId/groceries')
         .add(newGroceryData)
-        .then((value) => print(value));
+        .then(
+          (value) => {
+            // ignore: avoid_print
+            print(value),
+            success = true,
+          },
+        );
     isLoading = false;
+  }
+
+  @action
+  Future<String> _uploadProductImage({
+    required File? productImage,
+    required String uId,
+    required String pName,
+  }) async {
+    var imageLink = '';
+    var groceryDate =
+        '${groceryName.toLowerCase()}_${DateTime.now().millisecondsSinceEpoch}';
+
+    var productName = pName.replaceAll(RegExp(r' '), '_').toLowerCase();
+
+    SettableMetadata metadata = SettableMetadata(
+      customMetadata: <String, String>{'owner_id': uId, 'name': productName},
+    );
+
+    reference = FirebaseStorage.instance
+        .ref()
+        .child('groceries/$uId/$groceryDate/$productName');
+
+    final TaskSnapshot snapshot =
+        await reference.putFile(productImage!, metadata);
+    final url = await snapshot.ref.getDownloadURL();
+
+    imageLink = url;
+    return imageLink;
   }
 
   @action

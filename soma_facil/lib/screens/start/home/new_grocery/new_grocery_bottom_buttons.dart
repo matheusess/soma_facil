@@ -8,7 +8,6 @@ import 'package:soma_facil/global/global_styles.dart';
 import 'package:soma_facil/stores/new_grocery/new_grocery_store.dart';
 
 import 'new_grocery_checkout/new_grocery_checkout_screen.dart';
-import 'new_grocery_item/new_grocery_item_screen.dart';
 
 class NewGroceryBottomButtons extends StatefulWidget {
   const NewGroceryBottomButtons({super.key});
@@ -142,6 +141,7 @@ class _NewGroceryBottomButtonsState extends State<NewGroceryBottomButtons> {
                         'Finalizar compra?',
                         style: GoogleFonts.nunito(
                           fontWeight: FontWeight.w700,
+                          fontSize: 20,
                         ),
                       ),
                       spaces.vSpace2,

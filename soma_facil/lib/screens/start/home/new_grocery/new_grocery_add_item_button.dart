@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../global/global_colors.dart';
 import '../../../../global/global_styles.dart';
-import 'new_grocery_checkout/new_grocery_checkout_screen.dart';
 import 'new_grocery_item/new_grocery_item_screen.dart';
 
 class NewGroceryAdditemButton extends StatefulWidget {
@@ -54,6 +53,4 @@ class _NewGroceryAdditemButtonState extends State<NewGroceryAdditemButton> {
       ],
     );
   }
-
-  
 }
