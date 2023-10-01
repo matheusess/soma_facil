@@ -36,7 +36,7 @@ class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
       children: [
         Text(
           'Lista de itens',
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.quicksand(
             color: color.black,
             fontSize: 14,
             fontWeight: FontWeight.w700,
@@ -74,7 +74,7 @@ class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
                         Text(
                           newGroceryStore.newGroceryList[index].productName
                               .toUpperCase(),
-                          style: GoogleFonts.nunito(
+                          style: GoogleFonts.quicksand(
                             color: color.black,
                             fontSize: 14,
                             fontWeight: FontWeight.w800,
@@ -121,7 +121,7 @@ class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
     var priceParsed = UtilBrasilFields.obterReal(price);
     return Text(
       priceParsed,
-      style: GoogleFonts.nunito(
+      style: GoogleFonts.quicksand(
         color: color.black,
         fontSize: 14,
         fontWeight: FontWeight.w700,
@@ -133,7 +133,7 @@ class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
     var priceParsed = UtilBrasilFields.obterReal(price);
     return Text(
       priceParsed,
-      style: GoogleFonts.nunito(
+      style: GoogleFonts.quicksand(
         color: color.black,
         fontSize: 14,
         fontWeight: FontWeight.w700,
@@ -147,7 +147,7 @@ class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
       children: [
         Text(
           'Preço',
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.quicksand(
             color: color.black,
             fontSize: 14,
             fontWeight: FontWeight.w500,
@@ -165,7 +165,7 @@ class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
       children: [
         Text(
           'Quantidade',
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.quicksand(
             color: color.black,
             fontSize: 14,
             fontWeight: FontWeight.w500,
@@ -173,7 +173,7 @@ class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
         ),
         Text(
           newGroceryStore.newGroceryList[index].productQuantity.toString(),
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.quicksand(
             color: color.black,
             fontSize: 14,
             fontWeight: FontWeight.w700,
@@ -189,7 +189,7 @@ class _NewGroceryItemListWidgetState extends State<NewGroceryItemListWidget> {
       children: [
         Text(
           'Total',
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.quicksand(
             color: color.black,
             fontSize: 14,
             fontWeight: FontWeight.w500,

@@ -58,7 +58,7 @@ class _NewGroceryShoppingNameWidgetState
                 const SizedBox(width: 8),
                 Text(
                   'Local da compra',
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.quicksand(
                     textStyle: TextStyle(
                       color: color.black,
                       fontWeight: FontWeight.w600,
@@ -72,7 +72,7 @@ class _NewGroceryShoppingNameWidgetState
               initialValue: newGroceryStore.groceryName,
               onChanged: newGroceryStore.setGroceryName,
               autofocus: false,
-              style: GoogleFonts.nunito(
+              style: GoogleFonts.quicksand(
                 textStyle: TextStyle(
                   color: color.black,
                   fontWeight: FontWeight.w800,
@@ -83,7 +83,7 @@ class _NewGroceryShoppingNameWidgetState
                 contentPadding: const EdgeInsets.only(left: 6),
                 border: InputBorder.none,
                 hintText: 'Digite o nome do local ...',
-                hintStyle: GoogleFonts.nunito(
+                hintStyle: GoogleFonts.quicksand(
                   textStyle: TextStyle(
                     color: color.darkGrey,
                     fontWeight: FontWeight.w400,

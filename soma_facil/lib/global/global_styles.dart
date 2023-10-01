@@ -28,14 +28,14 @@ class GlobalSpaces {
 }
 
 class GlobalTextStyle {
-  final textHeader = GoogleFonts.nunito(
+  final textHeader = GoogleFonts.quicksand(
     textStyle: TextStyle(
       color: color.black,
       fontWeight: FontWeight.w600,
       fontSize: 14,
     ),
   );
-  final cardHeader = GoogleFonts.nunito(
+  final cardHeader = GoogleFonts.quicksand(
     textStyle: TextStyle(
       color: color.black,
       fontWeight: FontWeight.w800,
@@ -43,7 +43,7 @@ class GlobalTextStyle {
     ),
   );
 
-  final cardSubHeader = GoogleFonts.nunito(
+  final cardSubHeader = GoogleFonts.quicksand(
     textStyle: TextStyle(
       color: color.black,
       fontWeight: FontWeight.w600,
@@ -51,7 +51,7 @@ class GlobalTextStyle {
     ),
   );
 
-  final cardValue = GoogleFonts.nunito(
+  final cardValue = GoogleFonts.quicksand(
     textStyle: TextStyle(
       color: color.black,
       fontWeight: FontWeight.w400,
@@ -59,7 +59,7 @@ class GlobalTextStyle {
     ),
   );
 
-  final cardValueHighLight = GoogleFonts.nunito(
+  final cardValueHighLight = GoogleFonts.quicksand(
     textStyle: TextStyle(
       color: color.black,
       fontWeight: FontWeight.w600,
@@ -67,7 +67,7 @@ class GlobalTextStyle {
     ),
   );
 
-  final cardValueHighLightLarge = GoogleFonts.nunito(
+  final cardValueHighLightLarge = GoogleFonts.quicksand(
     textStyle: TextStyle(
       color: color.black,
       fontWeight: FontWeight.w700,

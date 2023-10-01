@@ -72,7 +72,7 @@ class _SignInBottomButtonsWidgetState extends State<SignInBottomButtonsWidget> {
                   : color.cardBackground,
               label: Text(
                 'Criar usuário',
-                style: GoogleFonts.nunito(
+                style: GoogleFonts.quicksand(
                   textStyle: TextStyle(
                     color: loginStore.isNewUserValid ? color.white : color.grey,
                     fontWeight: FontWeight.w700,

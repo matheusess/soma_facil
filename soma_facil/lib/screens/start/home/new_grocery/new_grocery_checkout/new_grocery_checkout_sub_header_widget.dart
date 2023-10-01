@@ -67,7 +67,7 @@ class _NewGroceryCheckoutSubHeaderWidgetState
         Observer(
           builder: (_) => Text(
             newGroceryStore.newGroceryList.length.toString(),
-            style: GoogleFonts.nunito(
+            style: GoogleFonts.quicksand(
               textStyle: TextStyle(
                 color: color.blue,
                 fontWeight: FontWeight.w700,
@@ -92,7 +92,7 @@ class _NewGroceryCheckoutSubHeaderWidgetState
         ),
         Text(
           priceParsed,
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.quicksand(
             textStyle: TextStyle(
               color: color.purple,
               fontWeight: FontWeight.w800,
@@ -113,7 +113,7 @@ class _NewGroceryCheckoutSubHeaderWidgetState
         ),
         Text(
           '1315',
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.quicksand(
             textStyle: TextStyle(
               color: color.green,
               fontWeight: FontWeight.w700,

@@ -31,7 +31,7 @@ class _NewGroceryCheckoutHeaderWidgetState
         ),
         Text(
           'Vamos conferir o',
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.quicksand(
             textStyle: TextStyle(
               color: color.darkGrey,
               fontWeight: FontWeight.w500,
@@ -41,7 +41,7 @@ class _NewGroceryCheckoutHeaderWidgetState
         ),
         Text(
           'valor dos produtos',
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.quicksand(
             textStyle: TextStyle(
               color: color.darkGrey,
               fontWeight: FontWeight.w500,

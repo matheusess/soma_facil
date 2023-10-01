@@ -33,7 +33,7 @@ abstract class NewGroceryStoreBase with Store {
   bool isLoading = false,
       isPriceInvalid = false,
       routedImageScreen = false,
-      success = true,
+      success = false,
       error = false;
 
   @observable
@@ -177,6 +177,7 @@ abstract class NewGroceryStoreBase with Store {
     newGroceryList.add(item);
     newGroceryList.sort(((a, b) => a.productName.compareTo(b.productName)));
     _updateTotal();
+    _clearNewItem();
   }
 
   @action
@@ -192,7 +193,6 @@ abstract class NewGroceryStoreBase with Store {
     for (var i = 0; i < newGroceryList.length; i++) {
       groceryPriceTotalizer += newGroceryList[i].productTotalPrice;
     }
-    _clearNewItemData();
     isLoading = false;
   }
 
@@ -219,7 +219,8 @@ abstract class NewGroceryStoreBase with Store {
 
   @action
   Future<void> createNewGrocery({
-    required uId,
+    required String uId,
+    required DateTime createdAt,
   }) async {
     isLoading = true;
 
@@ -230,8 +231,9 @@ abstract class NewGroceryStoreBase with Store {
       e.productImage == null
           ? tempMap['image'] = ''
           : tempMap['image'] = await _uploadProductImage(
-              productImage: e.productImage,
               uId: uId,
+              createdAt: createdAt,
+              pImage: e.productImage,
               pName: e.productName,
             );
       tempMap['name'] = e.productName;
@@ -242,19 +244,18 @@ abstract class NewGroceryStoreBase with Store {
     }
 
     Map<String, dynamic> newGroceryData = {
-      "name": groceryName,
-      "total_price": groceryPriceTotalizer,
-      "total_items": newGroceryList.length,
-      "items": items,
-      "created_at": DateTime.now(),
+      "items_list": items,
+      "grocery_name": groceryName,
+      "items_total": newGroceryList.length,
+      "total_purchase_amount": groceryPriceTotalizer,
+      "created_at": createdAt,
     };
     await FirebaseFirestore.instance
         .collection('users/$uId/groceries')
         .add(newGroceryData)
         .then(
           (value) => {
-            // ignore: avoid_print
-            print(value),
+            clearGroceryData(),
             success = true,
           },
         );
@@ -263,26 +264,29 @@ abstract class NewGroceryStoreBase with Store {
 
   @action
   Future<String> _uploadProductImage({
-    required File? productImage,
+    required File? pImage,
     required String uId,
     required String pName,
+    required DateTime createdAt,
   }) async {
     var imageLink = '';
     var groceryDate =
-        '${groceryName.toLowerCase()}_${DateTime.now().millisecondsSinceEpoch}';
+        '${groceryName.toLowerCase()}_${createdAt.millisecondsSinceEpoch}';
 
     var productName = pName.replaceAll(RegExp(r' '), '_').toLowerCase();
 
     SettableMetadata metadata = SettableMetadata(
-      customMetadata: <String, String>{'owner_id': uId, 'name': productName},
+      customMetadata: <String, String>{
+        'owner_id': uId,
+        'name': productName,
+      },
     );
 
     reference = FirebaseStorage.instance
         .ref()
         .child('groceries/$uId/$groceryDate/$productName');
 
-    final TaskSnapshot snapshot =
-        await reference.putFile(productImage!, metadata);
+    final TaskSnapshot snapshot = await reference.putFile(pImage!, metadata);
     final url = await snapshot.ref.getDownloadURL();
 
     imageLink = url;
@@ -290,28 +294,33 @@ abstract class NewGroceryStoreBase with Store {
   }
 
   @action
-  void imageClear() {
-    itemImage = null;
-  }
+  void imageClear() => itemImage = null;
 
   @action
-  void itemDataClear() {
+  void _clearNewItem() {
     itemName = '';
     itemNameController.text = '';
+    itemPriceController.text = '';
     itemPrice = 0.0;
     itemPriceStr = 'R\$ 0,00';
     itemPriceTotalizer = 0.0;
     itemPriceTotalizerStr = '0,00';
     itemQuantity = 1;
+    itemImage = null;
   }
 
   @action
-  void _clearNewItemData() {
+  void clearGroceryData() {
     itemName = '';
     itemNameController.text = '';
+    itemPriceController.text = '';
     itemPrice = 0.0;
     itemPriceStr = 'R\$ 0,00';
+    itemPriceTotalizer = 0.0;
+    itemPriceTotalizerStr = '0,00';
     itemQuantity = 1;
-    itemImage = null;
+    newGroceryList.clear();
+    groceryPriceTotalizer = 0.0;
+    groceryName = '';
   }
 }

@@ -46,7 +46,7 @@ class _NewGrocerytextHeaderWidgetState
         ),
         Text(
           'Selecione o nome',
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.quicksand(
             textStyle: TextStyle(
               color: color.darkGrey,
               fontWeight: FontWeight.w500,
@@ -56,7 +56,7 @@ class _NewGrocerytextHeaderWidgetState
         ),
         Text(
           'e o preço do produto',
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.quicksand(
             textStyle: TextStyle(
               color: color.darkGrey,
               fontWeight: FontWeight.w500,

@@ -18,7 +18,7 @@ class _SignInHeaderWidgetState extends State<SignInHeaderWidget> {
           children: [
             Text(
               'Criar usuário',
-              style: GoogleFonts.nunito(
+              style: GoogleFonts.quicksand(
                 color: Colors.black,
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
@@ -26,7 +26,7 @@ class _SignInHeaderWidgetState extends State<SignInHeaderWidget> {
             ),
             Text(
               'Complete as informações',
-              style: GoogleFonts.nunito(
+              style: GoogleFonts.quicksand(
                 color: Colors.black,
                 fontSize: 14,
                 fontWeight: FontWeight.w300,

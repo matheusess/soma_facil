@@ -78,7 +78,7 @@ class _NewGroceryImageFieldState extends State<NewGroceryImageField> {
               ),
               Text(
                 'Excluir imagem',
-                style: GoogleFonts.nunito(
+                style: GoogleFonts.quicksand(
                   textStyle: TextStyle(
                     color: color.black,
                     fontWeight: FontWeight.w600,

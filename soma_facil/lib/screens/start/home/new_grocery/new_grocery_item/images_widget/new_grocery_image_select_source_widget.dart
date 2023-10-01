@@ -48,7 +48,7 @@ class _NewGroceryImageSelectSourceWidgetState
               children: [
                 Text(
                   'Foto do produto',
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.quicksand(
                     textStyle: const TextStyle(
                       color: Color.fromARGB(221, 0, 0, 0),
                       fontWeight: FontWeight.w700,
@@ -93,7 +93,7 @@ class _NewGroceryImageSelectSourceWidgetState
                     ),
                     Text(
                       'Câmera',
-                      style: GoogleFonts.nunito(
+                      style: GoogleFonts.quicksand(
                         textStyle: const TextStyle(
                           color: Color.fromARGB(221, 0, 0, 0),
                           fontWeight: FontWeight.w600,
@@ -122,7 +122,7 @@ class _NewGroceryImageSelectSourceWidgetState
                   ),
                   Text(
                     'Galeria',
-                    style: GoogleFonts.nunito(
+                    style: GoogleFonts.quicksand(
                       textStyle: const TextStyle(
                         color: Color.fromARGB(221, 0, 0, 0),
                         fontWeight: FontWeight.w600,

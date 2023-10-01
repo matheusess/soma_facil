@@ -66,7 +66,7 @@ class _NewGroceryItemScreenState extends State<NewGroceryItemScreen> {
                   ),
                   Text(
                     'Dados do produto',
-                    style: GoogleFonts.nunito(
+                    style: GoogleFonts.quicksand(
                       textStyle: TextStyle(
                         color: color.black,
                         fontWeight: FontWeight.w700,

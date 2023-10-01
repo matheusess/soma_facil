@@ -395,9 +395,10 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
       AsyncAction('NewGroceryStoreBase.createNewGrocery', context: context);
 
   @override
-  Future<void> createNewGrocery({required dynamic uId}) {
+  Future<void> createNewGrocery(
+      {required String uId, required DateTime createdAt}) {
     return _$createNewGroceryAsyncAction
-        .run(() => super.createNewGrocery(uId: uId));
+        .run(() => super.createNewGrocery(uId: uId, createdAt: createdAt));
   }
 
   late final _$_uploadProductImageAsyncAction =
@@ -405,11 +406,12 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
 
   @override
   Future<String> _uploadProductImage(
-      {required File? productImage,
+      {required File? pImage,
       required String uId,
-      required String pName}) {
+      required String pName,
+      required DateTime createdAt}) {
     return _$_uploadProductImageAsyncAction.run(() => super._uploadProductImage(
-        productImage: productImage, uId: uId, pName: pName));
+        pImage: pImage, uId: uId, pName: pName, createdAt: createdAt));
   }
 
   late final _$NewGroceryStoreBaseActionController =
@@ -592,22 +594,22 @@ mixin _$NewGroceryStore on NewGroceryStoreBase, Store {
   }
 
   @override
-  void itemDataClear() {
+  void _clearNewItem() {
     final _$actionInfo = _$NewGroceryStoreBaseActionController.startAction(
-        name: 'NewGroceryStoreBase.itemDataClear');
+        name: 'NewGroceryStoreBase._clearNewItem');
     try {
-      return super.itemDataClear();
+      return super._clearNewItem();
     } finally {
       _$NewGroceryStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void _clearNewItemData() {
+  void clearGroceryData() {
     final _$actionInfo = _$NewGroceryStoreBaseActionController.startAction(
-        name: 'NewGroceryStoreBase._clearNewItemData');
+        name: 'NewGroceryStoreBase.clearGroceryData');
     try {
-      return super._clearNewItemData();
+      return super.clearGroceryData();
     } finally {
       _$NewGroceryStoreBaseActionController.endAction(_$actionInfo);
     }

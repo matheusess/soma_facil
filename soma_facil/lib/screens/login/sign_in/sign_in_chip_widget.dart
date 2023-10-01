@@ -52,7 +52,7 @@ class _SignInChipWidgetState extends State<SignInChipWidget> {
           space.hSpace,
           Text(
             widget.label,
-            style: GoogleFonts.nunito(
+            style: GoogleFonts.quicksand(
               color: widget.isValid ? color.black : color.darkGrey,
               fontWeight: widget.isValid ? FontWeight.w600 : FontWeight.w500,
             ),

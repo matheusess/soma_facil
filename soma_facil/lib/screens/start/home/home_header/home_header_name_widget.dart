@@ -25,7 +25,7 @@ class _HomeHeaderNameWidgetState extends State<HomeHeaderNameWidget> {
               'Olá,',
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: GoogleFonts.nunito(
+              style: GoogleFonts.quicksand(
                 textStyle: TextStyle(
                   color: color.black,
                   fontWeight: FontWeight.w600,
@@ -41,7 +41,7 @@ class _HomeHeaderNameWidgetState extends State<HomeHeaderNameWidget> {
               user?.displayName ?? "Carregando... ",
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: GoogleFonts.nunito(
+              style: GoogleFonts.quicksand(
                 textStyle: TextStyle(
                   color: color.black,
                   fontWeight: FontWeight.w700,

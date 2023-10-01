@@ -34,7 +34,7 @@ class _NewGroceryItemHeaderState extends State<NewGroceryItemHeader> {
         ),
         Text(
           'Adicione um',
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.quicksand(
             textStyle: TextStyle(
               color: color.black,
               fontWeight: FontWeight.w600,
@@ -44,7 +44,7 @@ class _NewGroceryItemHeaderState extends State<NewGroceryItemHeader> {
         ),
         Text(
           'novo item',
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.quicksand(
             textStyle: TextStyle(
               color: color.black,
               fontWeight: FontWeight.w600,

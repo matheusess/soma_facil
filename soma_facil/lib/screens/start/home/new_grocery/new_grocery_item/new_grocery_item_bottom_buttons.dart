@@ -105,7 +105,7 @@ class _NewGroceryItemBottomButtonsState
                     )
                   : Text(
                       'Adicionar',
-                      style: GoogleFonts.nunito(
+                      style: GoogleFonts.quicksand(
                         textStyle: TextStyle(
                           color: newGroceryStore.isNewItemValid
                               ? color.white
@@ -120,81 +120,5 @@ class _NewGroceryItemBottomButtonsState
         ],
       ),
     );
-
-    /* return Container(
-      width: double.infinity,
-      color: color.white,
-      padding: const EdgeInsets.only(
-        left: 14,
-        right: 16,
-        bottom: 50,
-        top: 30,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          FloatingActionButton(
-            heroTag: "backButton",
-            onPressed: () => Navigator.pop(
-              context,
-            ),
-            backgroundColor: color.red,
-            child: const Icon(Icons.arrow_back),
-          ),
-          Observer(
-            builder: (_) => FloatingActionButton.extended(
-              heroTag: "addItemButton",
-              onPressed: () => newGroceryStore.isNewItemValid ||
-                      newGroceryStore.isLoading
-                  ? {
-                      newGroceryStore.addItem(
-                        NewItemModel(
-                          productImage: newGroceryStore.itemImage,
-                          productName: newGroceryStore.itemName,
-                          productPrice: newGroceryStore.itemPrice,
-                          productQuantity: newGroceryStore.itemQuantity,
-                          productTotalPrice: newGroceryStore.itemPriceTotalizer,
-                        ),
-                      ),
-                      Navigator.pop(
-                        context,
-                      ),
-                    }
-                  : null,
-              backgroundColor: newGroceryStore.isNewItemValid
-                  ? color.blue
-                  : color.cardBackground,
-              icon: newGroceryStore.isLoading
-                  ? null
-                  : Icon(
-                      Icons.check,
-                      color: newGroceryStore.isNewItemValid
-                          ? color.white
-                          : color.grey,
-                    ),
-              label: newGroceryStore.isLoading
-                  ? Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 27),
-                      child: CircularProgressIndicator(
-                        color: color.white,
-                      ),
-                    )
-                  : Text(
-                      'Adicionar',
-                      style: GoogleFonts.nunito(
-                        textStyle: TextStyle(
-                          color: newGroceryStore.isNewItemValid
-                              ? color.white
-                              : color.grey,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ),
-            ),
-          ),
-        ],
-      ),
-    );*/
   }
 }

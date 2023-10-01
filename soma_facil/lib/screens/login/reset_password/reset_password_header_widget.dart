@@ -19,7 +19,7 @@ class _ResetPasswordHeaderWidgetState extends State<ResetPasswordHeaderWidget> {
           children: [
             Text(
               'Esqueceu a senha?',
-              style: GoogleFonts.nunito(
+              style: GoogleFonts.quicksand(
                 color: Colors.black,
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
@@ -27,7 +27,7 @@ class _ResetPasswordHeaderWidgetState extends State<ResetPasswordHeaderWidget> {
             ),
             Text(
               'Insira o e-mail para o reset de senha',
-              style: GoogleFonts.nunito(
+              style: GoogleFonts.quicksand(
                 color: Colors.black,
                 fontSize: 14,
                 fontWeight: FontWeight.w300,

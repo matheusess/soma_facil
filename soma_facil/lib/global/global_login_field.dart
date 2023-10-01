@@ -62,7 +62,7 @@ class _GlobalLoginFieldState extends State<GlobalLoginField> {
         enabled: widget.isEnable,
         autofocus: false,
         obscureText: widget.isObscureText ?? false,
-        style: GoogleFonts.nunito(
+        style: GoogleFonts.quicksand(
           textStyle: const TextStyle(
             letterSpacing: 1,
             color: Colors.black,
@@ -80,7 +80,7 @@ class _GlobalLoginFieldState extends State<GlobalLoginField> {
             vertical: 22,
           ),
           hintText: widget.placeHolder,
-          hintStyle: GoogleFonts.nunito(
+          hintStyle: GoogleFonts.quicksand(
             textStyle: TextStyle(
               letterSpacing: 1,
               color: color.grey,

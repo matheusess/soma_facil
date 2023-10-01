@@ -33,7 +33,7 @@ class _NewGroceryTotalPriceItemWidgetState
       children: [
         Text(
           'R\$',
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.quicksand(
             textStyle: TextStyle(
               color: color.black,
               fontWeight: FontWeight.w600,
@@ -46,7 +46,7 @@ class _NewGroceryTotalPriceItemWidgetState
         Observer(
           builder: (_) => Text(
             newGroceryStore.itemPriceTotalizerStr,
-            style: GoogleFonts.nunito(
+            style: GoogleFonts.quicksand(
               textStyle: TextStyle(
                 color: color.black,
                 fontWeight: FontWeight.w700,

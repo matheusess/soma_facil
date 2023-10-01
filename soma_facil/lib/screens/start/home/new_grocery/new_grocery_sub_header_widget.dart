@@ -65,7 +65,7 @@ class _NewGrocerySubHeaderWidgetState extends State<NewGrocerySubHeaderWidget> {
                 ),
                 label: Text(
                   'Adicionar item',
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.quicksand(
                     textStyle: TextStyle(
                       color: color.black,
                       fontWeight: FontWeight.w700,
@@ -88,7 +88,7 @@ class _NewGrocerySubHeaderWidgetState extends State<NewGrocerySubHeaderWidget> {
       children: [
         Text(
           'Total',
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.quicksand(
             textStyle: TextStyle(
               color: color.black,
               fontWeight: FontWeight.w700,
@@ -100,7 +100,7 @@ class _NewGrocerySubHeaderWidgetState extends State<NewGrocerySubHeaderWidget> {
           children: [
             Text(
               'R\$ ',
-              style: GoogleFonts.nunito(
+              style: GoogleFonts.quicksand(
                 textStyle: TextStyle(
                   color: color.black,
                   fontWeight: FontWeight.w700,
@@ -110,7 +110,7 @@ class _NewGrocerySubHeaderWidgetState extends State<NewGrocerySubHeaderWidget> {
             ),
             Text(
               priceParsed,
-              style: GoogleFonts.nunito(
+              style: GoogleFonts.quicksand(
                 textStyle: TextStyle(
                   color: color.black,
                   fontWeight: FontWeight.w800,

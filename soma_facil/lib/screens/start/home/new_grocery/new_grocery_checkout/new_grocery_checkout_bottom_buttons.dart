@@ -64,7 +64,7 @@ class _NewGroceryCheckoutBottomButtonsState
             child: const Icon(Icons.arrow_back),
           ),
           FloatingActionButton.extended(
-            heroTag: "addItemButton",
+            heroTag: "finishButton",
             // ignore: avoid_print
             onPressed: () => print('teste'),
             backgroundColor: newGroceryStore.isNewGroceyValid
@@ -77,7 +77,7 @@ class _NewGroceryCheckoutBottomButtonsState
             ),
             label: Text(
               'Finalizar',
-              style: GoogleFonts.nunito(
+              style: GoogleFonts.quicksand(
                 textStyle: TextStyle(
                   color: newGroceryStore.isNewGroceyValid
                       ? color.white

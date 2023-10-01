@@ -44,7 +44,7 @@ class _NewGroceryTextRecognitionBottomButtonState
           FloatingActionButton(
             heroTag: "backButton",
             onPressed: () => {
-              newGroceryStore.itemDataClear(),
+              newGroceryStore.clearGroceryData(),
               Navigator.pop(
                 context,
               ),
@@ -67,7 +67,7 @@ class _NewGroceryTextRecognitionBottomButtonState
                     ),
               label: Text(
                 'Adicionar',
-                style: GoogleFonts.nunito(
+                style: GoogleFonts.quicksand(
                   textStyle: TextStyle(
                     color: color.white,
                     fontWeight: FontWeight.w600,

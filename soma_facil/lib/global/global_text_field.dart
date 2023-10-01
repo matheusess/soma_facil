@@ -41,7 +41,7 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
         controller: widget.controller,
         enabled: widget.isEnable,
         autofocus: false,
-        style: GoogleFonts.nunito(
+        style: GoogleFonts.quicksand(
           textStyle: const TextStyle(
             letterSpacing: 1,
             color: Colors.black,
@@ -57,7 +57,7 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
             vertical: 22,
           ),
           hintText: widget.placeHolder,
-          hintStyle: GoogleFonts.nunito(
+          hintStyle: GoogleFonts.quicksand(
             textStyle: TextStyle(
               letterSpacing: 1,
               color: color.grey,

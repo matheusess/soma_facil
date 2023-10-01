@@ -34,7 +34,7 @@ class _NewGroceryNoDataWidgetState extends State<NewGroceryNoDataWidget> {
             _vSpace2,
             Text(
               'Ops!',
-              style: GoogleFonts.nunito(
+              style: GoogleFonts.quicksand(
                 textStyle: TextStyle(
                   color: color.black,
                   fontWeight: FontWeight.w600,
@@ -44,7 +44,7 @@ class _NewGroceryNoDataWidgetState extends State<NewGroceryNoDataWidget> {
             ),
             Text(
               'Parece que a lista está vazia.',
-              style: GoogleFonts.nunito(
+              style: GoogleFonts.quicksand(
                 textStyle: TextStyle(
                   color: color.black,
                   fontWeight: FontWeight.w600,

@@ -81,7 +81,7 @@ class _NewGroceryBottomButtonsState extends State<NewGroceryBottomButtons> {
               icon: const Icon(Icons.checklist_rtl),
               label: Text(
                 'Finalizar',
-                style: GoogleFonts.nunito(
+                style: GoogleFonts.quicksand(
                   textStyle: TextStyle(
                     color: color.white,
                     fontWeight: FontWeight.w600,
@@ -139,7 +139,7 @@ class _NewGroceryBottomButtonsState extends State<NewGroceryBottomButtons> {
                     children: [
                       Text(
                         'Finalizar compra?',
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.quicksand(
                           fontWeight: FontWeight.w700,
                           fontSize: 20,
                         ),
@@ -150,7 +150,7 @@ class _NewGroceryBottomButtonsState extends State<NewGroceryBottomButtons> {
                         overflow: TextOverflow.clip,
                         maxLines: 4,
                         softWrap: true,
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.quicksand(
                           fontWeight: FontWeight.w400,
                           fontSize: 14,
                         ),
@@ -163,12 +163,15 @@ class _NewGroceryBottomButtonsState extends State<NewGroceryBottomButtons> {
                             backgroundColor: color.blue,
                             onPressed: () => {
                               Navigator.pop(context),
-                              newGroceryStore.createNewGrocery(uId: user?.uid)
+                              newGroceryStore.createNewGrocery(
+                                uId: user!.uid,
+                                createdAt: DateTime.now(),
+                              )
                             },
                             elevation: 0,
                             label: Text(
                               'Finalizar',
-                              style: GoogleFonts.nunito(
+                              style: GoogleFonts.quicksand(
                                 color: color.white,
                                 fontWeight: FontWeight.w700,
                               ),
@@ -190,7 +193,7 @@ class _NewGroceryBottomButtonsState extends State<NewGroceryBottomButtons> {
                             elevation: 0,
                             label: Text(
                               'Conferir',
-                              style: GoogleFonts.nunito(
+                              style: GoogleFonts.quicksand(
                                 color: color.white,
                                 fontWeight: FontWeight.w700,
                               ),

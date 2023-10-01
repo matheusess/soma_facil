@@ -30,7 +30,7 @@ class _NewGroceryHeaderWidgetState extends State<NewGroceryHeaderWidget> {
         ),
         Text(
           'Bora fazer',
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.quicksand(
             textStyle: TextStyle(
               color: color.black,
               fontWeight: FontWeight.w600,
@@ -40,7 +40,7 @@ class _NewGroceryHeaderWidgetState extends State<NewGroceryHeaderWidget> {
         ),
         Text(
           'uma nova compra?',
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.quicksand(
             textStyle: TextStyle(
               color: color.black,
               fontWeight: FontWeight.w600,

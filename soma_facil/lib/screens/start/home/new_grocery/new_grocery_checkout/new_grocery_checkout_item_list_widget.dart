@@ -162,7 +162,7 @@ class _NewGroceryCheckoutItemListWidgetState
     var priceParsed = UtilBrasilFields.obterReal(price);
     return Text(
       priceParsed,
-      style: GoogleFonts.nunito(
+      style: GoogleFonts.quicksand(
         textStyle: TextStyle(
           color: color.black,
           fontWeight: FontWeight.w700,
@@ -176,7 +176,7 @@ class _NewGroceryCheckoutItemListWidgetState
     var priceParsed = UtilBrasilFields.obterReal(price);
     return Text(
       priceParsed,
-      style: GoogleFonts.nunito(
+      style: GoogleFonts.quicksand(
         textStyle: TextStyle(
           color: color.black,
           fontWeight: FontWeight.w700,
@@ -209,7 +209,7 @@ class _NewGroceryCheckoutItemListWidgetState
         ),
         Text(
           newGroceryStore.newGroceryList[index].productQuantity.toString(),
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.quicksand(
             textStyle: TextStyle(
               color: color.black,
               fontWeight: FontWeight.w700,

@@ -25,27 +25,50 @@ mixin _$GroceryStore on GroceryStoreBase, Store {
     });
   }
 
-  late final _$groceriesLisAtom =
-      Atom(name: 'GroceryStoreBase.groceriesLis', context: context);
+  late final _$groceriesListAtom =
+      Atom(name: 'GroceryStoreBase.groceriesList', context: context);
 
   @override
-  ObservableList<dynamic> get groceriesLis {
-    _$groceriesLisAtom.reportRead();
-    return super.groceriesLis;
+  ObservableList<GroceryModel> get groceriesList {
+    _$groceriesListAtom.reportRead();
+    return super.groceriesList;
   }
 
   @override
-  set groceriesLis(ObservableList<dynamic> value) {
-    _$groceriesLisAtom.reportWrite(value, super.groceriesLis, () {
-      super.groceriesLis = value;
+  set groceriesList(ObservableList<GroceryModel> value) {
+    _$groceriesListAtom.reportWrite(value, super.groceriesList, () {
+      super.groceriesList = value;
     });
+  }
+
+  late final _$getAllGroceriesAsyncAction =
+      AsyncAction('GroceryStoreBase.getAllGroceries', context: context);
+
+  @override
+  Future<ObservableList<GroceryModel>> getAllGroceries({required String uId}) {
+    return _$getAllGroceriesAsyncAction
+        .run(() => super.getAllGroceries(uId: uId));
+  }
+
+  late final _$GroceryStoreBaseActionController =
+      ActionController(name: 'GroceryStoreBase', context: context);
+
+  @override
+  void clearGroceciresList() {
+    final _$actionInfo = _$GroceryStoreBaseActionController.startAction(
+        name: 'GroceryStoreBase.clearGroceciresList');
+    try {
+      return super.clearGroceciresList();
+    } finally {
+      _$GroceryStoreBaseActionController.endAction(_$actionInfo);
+    }
   }
 
   @override
   String toString() {
     return '''
 isLoading: ${isLoading},
-groceriesLis: ${groceriesLis}
+groceriesList: ${groceriesList}
     ''';
   }
 }

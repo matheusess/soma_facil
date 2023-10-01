@@ -23,26 +23,25 @@ class _GroceriesListWidgetState extends State<GroceriesListWidget> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     groceryStore = Provider.of<GroceryStore>(context);
+    groceryStore.getAllGroceries(uId: user!.uid);
   }
 
   @override
   Widget build(BuildContext context) {
     return Observer(builder: (_) {
-      return Observer(builder: (_) {
-        if (groceryStore.isLoading == true) {
-          return _isLoading();
-        }
-        if (groceryStore.isLoading == false &&
-            groceryStore.groceriesLis.isEmpty) {
-          return _hasNoData();
-        }
-        if (groceryStore.isLoading == false &&
-            groceryStore.groceriesLis.isNotEmpty) {
-          return _hasData();
-        } else {
-          return const Text('Error');
-        }
-      });
+      if (groceryStore.isLoading == true) {
+        return _isLoading();
+      }
+      if (groceryStore.isLoading == false &&
+          groceryStore.groceriesList.isEmpty) {
+        return _hasNoData();
+      }
+      if (groceryStore.isLoading == false &&
+          groceryStore.groceriesList.isNotEmpty) {
+        return _hasData();
+      } else {
+        return const Text('Error');
+      }
     });
   }
 
@@ -59,6 +58,6 @@ class _GroceriesListWidgetState extends State<GroceriesListWidget> {
   }
 
   Widget _hasData() {
-    return const Center(child: Text('Tem dados sim!'));
+    return Center(child: Text(groceryStore.groceriesList.length.toString()));
   }
 }

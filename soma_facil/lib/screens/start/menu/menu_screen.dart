@@ -5,6 +5,8 @@ import 'package:soma_facil/screens/login/login_screen.dart';
 import 'package:soma_facil/stores/login/login_store.dart';
 import 'package:soma_facil/stores/new_grocery/new_grocery_store.dart';
 
+import 'menu_header/menu_header_widget.dart';
+
 class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});
 
@@ -26,20 +28,11 @@ class _MenuScreenState extends State<MenuScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: TextButton(
-          onPressed: () => {
-            loginStore.logout(),
-            Navigator.of(context, rootNavigator: true).pushReplacement(
-              PageTransition(
-                type: PageTransitionType.bottomToTop,
-                child: const LoginScreen(),
-              ),
-            ),
-          },
-          child: const Text('Logout'),
-        ),
+    return const Scaffold(
+      body: Column(
+        children: [
+          MenuHeaderWidget(),
+        ],
       ),
       backgroundColor: Colors.white,
     );

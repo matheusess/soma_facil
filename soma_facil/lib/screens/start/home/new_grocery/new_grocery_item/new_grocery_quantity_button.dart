@@ -50,7 +50,7 @@ class _NewGroceryQuantityButtonState extends State<NewGroceryQuantityButton> {
               ),
               Text(
                 newGroceryStore.itemQuantity.toString(),
-                style: GoogleFonts.nunito(
+                style: GoogleFonts.quicksand(
                   textStyle: TextStyle(
                     color: color.black,
                     fontWeight: FontWeight.w700,

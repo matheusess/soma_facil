@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:soma_facil/screens/start/home/home_header/grocery_list/groceries_list_widget.dart';
+import 'package:soma_facil/screens/start/home/grocery_list/groceries_list_widget.dart';
 import 'package:soma_facil/screens/start/home/home_header/home_header_widget.dart';
 
 import '../../../global/global_colors.dart';

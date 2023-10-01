@@ -41,7 +41,7 @@ class _NewGroceryAdditemButtonState extends State<NewGroceryAdditemButton> {
           ),
           label: Text(
             'Adicionar itemmm',
-            style: GoogleFonts.nunito(
+            style: GoogleFonts.quicksand(
               textStyle: const TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w600,

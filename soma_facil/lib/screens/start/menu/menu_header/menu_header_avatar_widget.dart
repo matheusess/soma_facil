@@ -1,16 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:soma_facil/global/global_colors.dart';
 
-class HomeHeaderAvatarWidget extends StatefulWidget {
-  const HomeHeaderAvatarWidget({super.key});
+import '../../../../global/global_colors.dart';
+
+class MenuHeaderAvatarWidget extends StatefulWidget {
+  const MenuHeaderAvatarWidget({super.key});
 
   @override
-  State<HomeHeaderAvatarWidget> createState() => _HomeHeaderAvatarWidgetState();
+  State<MenuHeaderAvatarWidget> createState() => _MenuHeaderAvatarWidgetState();
 }
 
-class _HomeHeaderAvatarWidgetState extends State<HomeHeaderAvatarWidget> {
+class _MenuHeaderAvatarWidgetState extends State<MenuHeaderAvatarWidget> {
   final GlobalColors color = GlobalColors();
   User? user = FirebaseAuth.instance.currentUser;
 
@@ -18,15 +20,15 @@ class _HomeHeaderAvatarWidgetState extends State<HomeHeaderAvatarWidget> {
   Widget build(BuildContext context) {
     if (user?.photoURL == '') {
       return Container(
-          height: 82,
-          width: 82,
+          height: 72,
+          width: 72,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: color.blueGreen,
             borderRadius: BorderRadius.circular(100),
             border: Border.all(
-              width: 3,
-              color: color.blueGreen,
+              width: 2,
+              color: color.white,
             ),
           ),
           child: Text(
@@ -36,27 +38,21 @@ class _HomeHeaderAvatarWidgetState extends State<HomeHeaderAvatarWidget> {
               fontSize: 36,
               fontWeight: FontWeight.w600,
             ),
-          )
-          /*child: Icon(
-          Icons.person_2,
-          color: color.white,
-          size: 58,
-        ),*/
-          );
+          ));
     } else {
       return Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
           border: Border.all(
             width: 3,
-            color: color.blueGreen,
+            color: color.darkOrange,
           ),
         ),
         child: ClipOval(
           child: FadeInImage.assetNetwork(
             placeholder: 'images/user-avatar.png',
             image: user?.photoURL ?? "",
-            width: 78.0,
+            width: 62.0,
             fit: BoxFit.cover,
           ),
         ),
